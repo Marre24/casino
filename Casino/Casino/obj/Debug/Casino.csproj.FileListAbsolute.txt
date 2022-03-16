@@ -8,3 +8,13 @@ I:\rbk\Elevmappar\PROG1222120\Maximilian Ellnestam M TE2 20 SBÅ\Personligt\Casi
 I:\rbk\Elevmappar\PROG1222120\Maximilian Ellnestam M TE2 20 SBÅ\Personligt\Casino\Casino\obj\Debug\Casino.csproj.CoreCompileInputs.cache
 I:\rbk\Elevmappar\PROG1222120\Maximilian Ellnestam M TE2 20 SBÅ\Personligt\Casino\Casino\obj\Debug\Casino.exe
 I:\rbk\Elevmappar\PROG1222120\Maximilian Ellnestam M TE2 20 SBÅ\Personligt\Casino\Casino\obj\Debug\Casino.pdb
+I:\rbk\Elevmappar\PROG1222120\Maximilian Ellnestam M TE2 20 SBÅ\Personligt\cloned Casino Rep\Casino\Casino\bin\Debug\Casino.exe.config
+I:\rbk\Elevmappar\PROG1222120\Maximilian Ellnestam M TE2 20 SBÅ\Personligt\cloned Casino Rep\Casino\Casino\bin\Debug\Casino.exe
+I:\rbk\Elevmappar\PROG1222120\Maximilian Ellnestam M TE2 20 SBÅ\Personligt\cloned Casino Rep\Casino\Casino\bin\Debug\Casino.pdb
+I:\rbk\Elevmappar\PROG1222120\Maximilian Ellnestam M TE2 20 SBÅ\Personligt\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.csproj.AssemblyReference.cache
+I:\rbk\Elevmappar\PROG1222120\Maximilian Ellnestam M TE2 20 SBÅ\Personligt\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.Log_inForm.resources
+I:\rbk\Elevmappar\PROG1222120\Maximilian Ellnestam M TE2 20 SBÅ\Personligt\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.Properties.Resources.resources
+I:\rbk\Elevmappar\PROG1222120\Maximilian Ellnestam M TE2 20 SBÅ\Personligt\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.csproj.GenerateResource.cache
+I:\rbk\Elevmappar\PROG1222120\Maximilian Ellnestam M TE2 20 SBÅ\Personligt\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.csproj.CoreCompileInputs.cache
+I:\rbk\Elevmappar\PROG1222120\Maximilian Ellnestam M TE2 20 SBÅ\Personligt\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.exe
+I:\rbk\Elevmappar\PROG1222120\Maximilian Ellnestam M TE2 20 SBÅ\Personligt\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.pdb
