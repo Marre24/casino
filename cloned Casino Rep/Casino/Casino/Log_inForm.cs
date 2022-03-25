@@ -16,7 +16,7 @@ namespace Casino
 
     public partial class Log_inForm : Form
     {
-        readonly string MyFilename = "Userinformation.txt";
+        readonly string MyFilename = "UserInformation.txt";
         public List<string> UserInformation;
         readonly SceneClass Scene = new SceneClass();
         public int starterMoney = 2000;                                                 //sett värde

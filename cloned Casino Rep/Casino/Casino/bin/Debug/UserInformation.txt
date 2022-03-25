@@ -2,3 +2,6 @@ Format:
 username
 password
 account balance
+ads
+asd
+2000

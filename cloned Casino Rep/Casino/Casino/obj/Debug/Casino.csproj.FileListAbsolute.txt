@@ -18,3 +18,14 @@ I:\rbk\Elevmappar\PROG1222120\Maximilian Ellnestam M TE2 20 SBÅ\Personligt\clon
 I:\rbk\Elevmappar\PROG1222120\Maximilian Ellnestam M TE2 20 SBÅ\Personligt\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.csproj.CoreCompileInputs.cache
 I:\rbk\Elevmappar\PROG1222120\Maximilian Ellnestam M TE2 20 SBÅ\Personligt\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.exe
 I:\rbk\Elevmappar\PROG1222120\Maximilian Ellnestam M TE2 20 SBÅ\Personligt\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.pdb
+C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Casino\Casino\bin\Debug\Casino.exe.config
+C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Casino\Casino\bin\Debug\Casino.exe
+C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Casino\Casino\bin\Debug\Casino.pdb
+C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.csproj.AssemblyReference.cache
+C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.csproj.SuggestedBindingRedirects.cache
+C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.Log_inForm.resources
+C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.Properties.Resources.resources
+C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.csproj.GenerateResource.cache
+C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.csproj.CoreCompileInputs.cache
+C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.exe
+C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.pdb
