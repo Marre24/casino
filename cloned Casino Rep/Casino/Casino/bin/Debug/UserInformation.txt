@@ -1,0 +1,4 @@
+Format:
+username
+password
+account balance
