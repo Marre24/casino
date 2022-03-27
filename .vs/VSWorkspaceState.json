@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\cloned Casino Rep",
+    "\\cloned Casino Rep\\Casino",
+    "\\cloned Casino Rep\\Casino\\Casino"
   ],
-  "SelectedNode": "\\Casino.sln (cloned Casino Rep\\Casino\\Casino.sln)",
+  "SelectedNode": "\\cloned Casino Rep\\Casino\\Casino\\SceneClass.cs",
   "PreviewInSolutionExplorer": false
 }

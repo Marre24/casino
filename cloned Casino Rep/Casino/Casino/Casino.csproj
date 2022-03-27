@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlackJackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlackJackForm.Designer.cs">
+      <DependentUpon>BlackJackForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CasinoLobby.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     <Compile Include="CostomButtons.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="BlackJackForm.resx">
+      <DependentUpon>BlackJackForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CasinoLobby.resx">
       <DependentUpon>CasinoLobby.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +96,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -102,6 +112,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\LobbyPicV2.png" />
+    <None Include="bin\Debug\EmptyTable.png" />
     <Content Include="UserInformation.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

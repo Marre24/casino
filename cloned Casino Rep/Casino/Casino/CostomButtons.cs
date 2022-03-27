@@ -17,7 +17,6 @@ namespace Casino
         private int borderRadius = 40;
         private Color borderColor = Color.PaleVioletRed;
 
-
         //Properties
         [Category("Extra button settings")]
         public int BorderSize
@@ -93,7 +92,6 @@ namespace Casino
 
             return path;
         }
-
         protected override void OnPaint(PaintEventArgs pevent)
         {
             base.OnPaint(pevent);
@@ -136,20 +134,15 @@ namespace Casino
                 }
             }
         }
-
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
             this.Parent.BackColorChanged += new EventHandler(Container_BackColorChanged);
         }
-
         private void Container_BackColorChanged(object sender, EventArgs e)
         {
             if (this.DesignMode)
                 this.Invalidate();
-
-            
-
         }
     }
 }

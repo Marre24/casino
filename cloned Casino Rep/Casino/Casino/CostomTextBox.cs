@@ -14,8 +14,6 @@ namespace Casino
     {
         //Metoder kommer inte att funka, om du vill så får du kolla på videon igen ungefär vid 15.00  https://www.youtube.com/watch?v=CkpUQYzYCC8&t=108s&ab_channel=RJCodeAdvanceEN
 
-
-
         //Fields
         private Color borderColor = Color.MediumSlateBlue;
         private int borderSize = 2;
@@ -24,11 +22,11 @@ namespace Casino
         private bool isFocused = false;
 
         //Constructor
-
         public CostomTextBox()
         {
             InitializeComponent();
         }
+
         //properties
         [Category("TextboxExtra")]
         public Color BorderColor {
@@ -118,7 +116,6 @@ namespace Casino
                 }
             }
         }
-
         [Category ("TextboxExtra")]
         public string Texts
         {
@@ -131,13 +128,10 @@ namespace Casino
                 textBox1.Text = value;
             }
         }
-
         [Category("TextboxExtra")]
         public Color BorderFocusColor { get => borderFocusColor; set => borderFocusColor = value; }
 
-
         //overridden methods
-
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -146,7 +140,6 @@ namespace Casino
             //draw Border
             using (Pen penBorder = new Pen(borderColor, borderSize))
             {
-                
                 penBorder.Alignment = System.Drawing.Drawing2D.PenAlignment.Inset;
 
                 if (!isFocused)
@@ -165,23 +158,18 @@ namespace Casino
                     else
                         g.DrawRectangle(penBorder, 0, 0, this.Width - 0.5f, this.Height - 0.5f);
                 }
-
-
             }
-
         }
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
             UpdateControlHeight();
         }
-
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             UpdateControlHeight();
         }
-
         private void UpdateControlHeight()
         {
             if (textBox1.Multiline == false)
@@ -193,8 +181,6 @@ namespace Casino
 
                 this.Height = textBox1.Height + this.Padding.Top + this.Padding.Bottom;
             }
-
-
         }
 
         private void textBox1_Enter(object sender, EventArgs e)

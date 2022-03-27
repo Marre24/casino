@@ -50,7 +50,15 @@ namespace Casino
             control.Height += (control.Height * height) / oldSize.Height;
 
         }
+        private void Btn_Exit_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.ExitThread();
+        }
+        private void Btn_BlackJack_Click(object sender, EventArgs e)
+        {
+            BlackJackForm BlackJack = new BlackJackForm();
+            BlackJack.Show();
 
-
+        }
     }
 }

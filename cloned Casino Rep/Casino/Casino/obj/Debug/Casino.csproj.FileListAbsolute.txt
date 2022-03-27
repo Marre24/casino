@@ -31,3 +31,4 @@ C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Ca
 C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.pdb
 C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.CostomTextBox.resources
 C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.CasinoLobby.resources
+C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.BlackJackForm.resources
