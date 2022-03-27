@@ -28,8 +28,53 @@ namespace Casino
         }
         private void Btn_Login_Click(object sender, EventArgs e)                      //måste kunna logga in 
         {
+            MessageBox.Show(Tb_Password.Texts);
+            int usernameLine = CheckUsername(Tb_UserName.Texts);
+            if (usernameLine == 0)
+            {
+                MessageBox.Show("Username not found");
+                return;
+            }
+            if (!IsPassword(usernameLine, Tb_Password.Texts))
+            {
+                MessageBox.Show("Password not found");
+                return;
+            }
+            HideAllComponents();
+            Scene.AcconutMangementScene(Lbl_AccontBalance, Lbl_PasswordInfo, Lbl_UsernameInfo, Btn_GoToLobby, Tb_UserName.Texts, Tb_Password.Texts, GetAccountBalance(usernameLine));
+        }
+
+        private int GetAccountBalance(int usernameLine)
+        {
+            int accountBalance = int.Parse(File.ReadLines(MyFilename).Skip(usernameLine + 1).Take(1).First());
+            return accountBalance;
             
         }
+
+        private bool IsPassword(int usernameline, string password)
+        {
+            if (password == File.ReadLines(MyFilename).Skip(usernameline).Take(1).First())
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private int CheckUsername(string username)
+        {
+            int counter = 0;
+
+            foreach (string line in System.IO.File.ReadLines(MyFilename))
+            {
+                counter++;
+                if (line == username)
+                {
+                    return counter;
+                }
+            }
+            return 0;
+        }
+
         private void Btn_CreateLogin_Click(object sender, EventArgs e)
         {
             HideAllComponents();
@@ -46,16 +91,16 @@ namespace Casino
         }
         private void Btn_NewLoginInformation_Click(object sender, EventArgs e)
         {
-            if (Tb_Password.Text == "" || Tb_UserName.Text == "")
+            if (Tb_Password.Texts == "" || Tb_UserName.Texts == "")
             {
                 MessageBox.Show("Your new username or password not filled in");
                 return;
             }
-            AddUserInformationToTextFile(Tb_UserName.Text);
-            AddUserInformationToTextFile(Tb_Password.Text);
+            AddUserInformationToTextFile(Tb_UserName.Texts);
+            AddUserInformationToTextFile(Tb_Password.Texts);
             AddUserInformationToTextFile(starterMoney.ToString());
             HideAllComponents();
-            Scene.AcconutMangementScene();
+            Scene.AcconutMangementScene(Lbl_AccontBalance, Lbl_PasswordInfo, Lbl_UsernameInfo, Btn_GoToLobby, Tb_UserName.Texts, Tb_Password.Texts, GetAccountBalance(CheckUsername(Tb_UserName.Texts)));
         }
         private void Btn_Return_Click(object sender, EventArgs e)
         {

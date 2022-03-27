@@ -2,6 +2,13 @@ Format:
 username
 password
 account balance
-ads
-asd
+
+Maxi
+drgurkis
+2000
+MaxiV2
+drgurkis
+4000
+Alexander
+aik2lax9
 2000

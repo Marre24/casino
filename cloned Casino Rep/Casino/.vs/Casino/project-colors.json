@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "00ce99b5-9c24-41a0-8c27-15ff2bbc7f73": {
+      "ProjectGuid": "00ce99b5-9c24-41a0-8c27-15ff2bbc7f73",
+      "DisplayName": "Casino",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

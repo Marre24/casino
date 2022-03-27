@@ -52,6 +52,12 @@
     <Compile Include="CasinoLobby.Designer.cs">
       <DependentUpon>CasinoLobby.cs</DependentUpon>
     </Compile>
+    <Compile Include="CostomTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CostomTextBox.Designer.cs">
+      <DependentUpon>CostomTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Log_inForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +67,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SceneClass.cs" />
+    <Compile Include="CostomButtons.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="CostomTextBox.resx">
+      <DependentUpon>CostomTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Log_inForm.resx">
       <DependentUpon>Log_inForm.cs</DependentUpon>
     </EmbeddedResource>
