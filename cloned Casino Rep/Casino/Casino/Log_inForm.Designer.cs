@@ -117,6 +117,7 @@ namespace Casino
             this.Btn_GoToLobby.Text = "Go To lobby";
             this.Btn_GoToLobby.TextColor = System.Drawing.Color.White;
             this.Btn_GoToLobby.UseVisualStyleBackColor = false;
+            this.Btn_GoToLobby.Click += new System.EventHandler(this.Btn_GoToLobby_Click);
             // 
             // Btn_NewLoginInformation
             // 

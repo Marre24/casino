@@ -12,9 +12,45 @@ namespace Casino
 {
     public partial class CasinoLobby : Form
     {
+        readonly SceneClass Scene = new SceneClass();
         public CasinoLobby()
         {
             InitializeComponent();
+            string lobbyImage = "LobbyPicV2.PNG";
+            Scene.LobbyScene(Pb_Background, lobbyImage);
+            Pb_Background.Dock = DockStyle.Fill;
+
         }
+
+
+
+
+
+        private Size oldSize;
+        private void Log_inForm_Load(object sender, EventArgs e) => oldSize = base.Size;
+
+        protected override void OnResize(System.EventArgs e)
+        {
+            base.OnResize(e);
+
+            foreach (Control cnt in this.Controls)
+                ResizeAll(cnt, base.Size);
+
+            oldSize = base.Size;
+            this.Pb_Background.SizeMode = PictureBoxSizeMode.Zoom;
+        }
+        private void ResizeAll(Control control, Size newSize)
+        {
+            int width = newSize.Width - oldSize.Width;
+            control.Left += (control.Left * width) / oldSize.Width;
+            control.Width += (control.Width * width) / oldSize.Width;
+
+            int height = newSize.Height - oldSize.Height;
+            control.Top += (control.Top * height) / oldSize.Height;
+            control.Height += (control.Height * height) / oldSize.Height;
+
+        }
+
+
     }
 }

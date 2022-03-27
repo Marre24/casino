@@ -26,9 +26,8 @@ namespace Casino
             HideAllComponents();
             Scene.StartScene(Lbl_password, Lbl_username, Btn_Login, Btn_CreateLogin, Tb_Password, Tb_UserName);
         }
-        private void Btn_Login_Click(object sender, EventArgs e)                      //måste kunna logga in 
+        private void Btn_Login_Click(object sender, EventArgs e)                      
         {
-            MessageBox.Show(Tb_Password.Texts);
             int usernameLine = CheckUsername(Tb_UserName.Texts);
             if (usernameLine == 0)
             {
@@ -96,12 +95,18 @@ namespace Casino
                 MessageBox.Show("Your new username or password not filled in");
                 return;
             }
+            if (CheckUsername(Tb_UserName.Texts) != 0)
+            {
+                MessageBox.Show("Your username is in use");
+                return;
+            }
             AddUserInformationToTextFile(Tb_UserName.Texts);
             AddUserInformationToTextFile(Tb_Password.Texts);
             AddUserInformationToTextFile(starterMoney.ToString());
             HideAllComponents();
             Scene.AcconutMangementScene(Lbl_AccontBalance, Lbl_PasswordInfo, Lbl_UsernameInfo, Btn_GoToLobby, Tb_UserName.Texts, Tb_Password.Texts, GetAccountBalance(CheckUsername(Tb_UserName.Texts)));
         }
+
         private void Btn_Return_Click(object sender, EventArgs e)
         {
             HideAllComponents();

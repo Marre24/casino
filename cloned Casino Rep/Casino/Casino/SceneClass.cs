@@ -22,6 +22,15 @@ namespace Casino
             Tb_Password.Show();
             Tb_UserName.Show();
         }
+
+        public void LobbyScene(PictureBox Pb_Background, string lobbyImage)
+        {
+
+            Pb_Background.Image = Image.FromFile(lobbyImage);
+
+
+        }
+
         public void UsercreateScene(Label Lbl_password, Label Lbl_username, Button Btn_Return, Button Btn_NewLoginInformation, CostomTextBox Tb_Password, CostomTextBox Tb_UserName)
         {
             Lbl_password.Text = "Select new Password";

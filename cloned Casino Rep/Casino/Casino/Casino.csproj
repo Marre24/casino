@@ -70,6 +70,9 @@
     <Compile Include="CostomButtons.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="CasinoLobby.resx">
+      <DependentUpon>CasinoLobby.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CostomTextBox.resx">
       <DependentUpon>CostomTextBox.cs</DependentUpon>
     </EmbeddedResource>
