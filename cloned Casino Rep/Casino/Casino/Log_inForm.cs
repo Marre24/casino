@@ -17,18 +17,48 @@ namespace Casino
     public partial class Log_inForm : Form
     {
         readonly string MyFilename = "UserInformation.txt";
-        public List<string> UserInformation;
         readonly SceneClass Scene = new SceneClass();
         public int starterMoney = 2000;                                                 //sett värde
+
+        public List<string> usernames = new List<string>();
+        public List<string> passwordList = new List<string>();
+        public List<int> balance = new List<int>();
+
+
         public Log_inForm()
         {
             InitializeComponent();
             HideAllComponents();
             Scene.StartScene(Lbl_password, Lbl_username, Btn_Login, Btn_CreateLogin, Tb_Password, Tb_UserName);
+
+            SetInformationInList(5, usernames);
+            SetInformationInList(6, passwordList);
+
+            SetBalanceInList(7, passwordList);
+
         }
+
+        private void SetInformationInList(int line, List<string> list)
+        {
+            for (int i = line; i < File.ReadLines(MyFilename).Count() - 1; i++)
+            {
+                list.Add(File.ReadLines(MyFilename).Skip(i).Take(1).First());
+            }
+
+        }
+
+        private void SetBalanceInList(int line, List<string> list)
+        {
+            for (int i = line; i < File.ReadLines(MyFilename).Count(); i++)
+            {
+                list.Add(File.ReadLines(MyFilename).Skip(i).Take(1).First());
+            }
+        }
+
         private void Btn_Login_Click(object sender, EventArgs e)                      
         {
-            int usernameLine = CheckUsername(Tb_UserName.Texts);
+
+            int usernameLine = CheckUsernameLine(Tb_UserName.Texts);
             if (usernameLine == 0)
             {
                 MessageBox.Show("Username not found");
@@ -52,14 +82,14 @@ namespace Casino
 
         private bool IsPassword(int usernameline, string password)
         {
-            if (password == File.ReadLines(MyFilename).Skip(usernameline).Take(1).First())
+            if (password == passwordList[usernameline])
             {
                 return true;
             }
             return false;
         }
 
-        private int CheckUsername(string username)
+        private int CheckUsernameLine(string username)
         {
             int counter = 0;
 
@@ -68,7 +98,7 @@ namespace Casino
                 counter++;
                 if (line == username)
                 {
-                    return counter;
+                    return (counter - 5) / 3;
                 }
             }
             return 0;
@@ -95,7 +125,7 @@ namespace Casino
                 MessageBox.Show("Your new username or password not filled in");
                 return;
             }
-            if (CheckUsername(Tb_UserName.Texts) != 0)
+            if (CheckUsernameLine(Tb_UserName.Texts) != 0)
             {
                 MessageBox.Show("Your username is in use");
                 return;
@@ -104,7 +134,7 @@ namespace Casino
             AddUserInformationToTextFile(Tb_Password.Texts);
             AddUserInformationToTextFile(starterMoney.ToString());
             HideAllComponents();
-            Scene.AcconutMangementScene(Lbl_AccontBalance, Lbl_PasswordInfo, Lbl_UsernameInfo, Btn_GoToLobby, Tb_UserName.Texts, Tb_Password.Texts, GetAccountBalance(CheckUsername(Tb_UserName.Texts)));
+            Scene.AcconutMangementScene(Lbl_AccontBalance, Lbl_PasswordInfo, Lbl_UsernameInfo, Btn_GoToLobby, Tb_UserName.Texts, Tb_Password.Texts, GetAccountBalance(CheckUsernameLine(Tb_UserName.Texts)));
         }
 
         private void Btn_Return_Click(object sender, EventArgs e)
