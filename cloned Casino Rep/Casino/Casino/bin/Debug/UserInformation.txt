@@ -4,13 +4,13 @@ password
 account balance
 
 Maxi
-drgurkis
-2000
-MaxiV2
-Drgurkis
-4000
-Alexander
-aik2lax9
+b
+5000
+Alex
+a
+3000
+test
+j
 2000
 a
 a

@@ -52,6 +52,8 @@
     <Compile Include="BlackJackForm.Designer.cs">
       <DependentUpon>BlackJackForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BlackJackPlayer.cs" />
+    <Compile Include="CardClass.cs" />
     <Compile Include="CasinoLobby.cs">
       <SubType>Form</SubType>
     </Compile>

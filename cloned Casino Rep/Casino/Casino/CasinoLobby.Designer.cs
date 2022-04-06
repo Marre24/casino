@@ -59,7 +59,7 @@ namespace Casino
             this.Btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_exit.Font = new System.Drawing.Font("MV Boli", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_exit.ForeColor = System.Drawing.Color.White;
-            this.Btn_exit.Location = new System.Drawing.Point(1202, 567);
+            this.Btn_exit.Location = new System.Drawing.Point(1129, 506);
             this.Btn_exit.Name = "Btn_exit";
             this.Btn_exit.Size = new System.Drawing.Size(220, 91);
             this.Btn_exit.TabIndex = 4;

@@ -34,6 +34,7 @@ namespace Casino
             this.Lbl_UsernameInfo = new System.Windows.Forms.Label();
             this.Lbl_AccontBalance = new System.Windows.Forms.Label();
             this.Lbl_PasswordInfo = new System.Windows.Forms.Label();
+            this.Btn_LogOut = new Casino.CostomButtons();
             this.Btn_GoToLobby = new Casino.CostomButtons();
             this.Btn_NewLoginInformation = new Casino.CostomButtons();
             this.Btn_Return = new Casino.CostomButtons();
@@ -98,6 +99,26 @@ namespace Casino
             this.Lbl_PasswordInfo.Size = new System.Drawing.Size(87, 34);
             this.Lbl_PasswordInfo.TabIndex = 12;
             this.Lbl_PasswordInfo.Text = "label2";
+            // 
+            // Btn_LogOut
+            // 
+            this.Btn_LogOut.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.Btn_LogOut.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.Btn_LogOut.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.Btn_LogOut.BorderRadius = 40;
+            this.Btn_LogOut.BorderSize = 0;
+            this.Btn_LogOut.FlatAppearance.BorderSize = 0;
+            this.Btn_LogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_LogOut.Font = new System.Drawing.Font("MV Boli", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_LogOut.ForeColor = System.Drawing.Color.White;
+            this.Btn_LogOut.Location = new System.Drawing.Point(913, 471);
+            this.Btn_LogOut.Name = "Btn_LogOut";
+            this.Btn_LogOut.Size = new System.Drawing.Size(260, 86);
+            this.Btn_LogOut.TabIndex = 23;
+            this.Btn_LogOut.Text = "Log Out";
+            this.Btn_LogOut.TextColor = System.Drawing.Color.White;
+            this.Btn_LogOut.UseVisualStyleBackColor = false;
+            this.Btn_LogOut.Click += new System.EventHandler(this.Btn_LogOut_Click);
             // 
             // Btn_GoToLobby
             // 
@@ -263,6 +284,7 @@ namespace Casino
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(1484, 711);
+            this.Controls.Add(this.Btn_LogOut);
             this.Controls.Add(this.Btn_GoToLobby);
             this.Controls.Add(this.Btn_NewLoginInformation);
             this.Controls.Add(this.Btn_Return);
@@ -299,6 +321,7 @@ namespace Casino
         private CostomButtons Btn_Return;
         private CostomButtons Btn_NewLoginInformation;
         private CostomButtons Btn_GoToLobby;
+        private CostomButtons Btn_LogOut;
     }
 }
 

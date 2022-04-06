@@ -56,6 +56,8 @@ namespace Casino
         }
         private void Btn_BlackJack_Click(object sender, EventArgs e)
         {
+            Pb_Background.Image = Image.FromFile("EmptyTable.PNG");
+
             BlackJackForm BlackJack = new BlackJackForm();
             BlackJack.Show();
 

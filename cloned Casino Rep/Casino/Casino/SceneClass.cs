@@ -45,7 +45,7 @@ namespace Casino
             Btn_Return.Show();
         }
 
-        public void AcconutMangementScene(Label Lbl_AccontBalance, Label Lbl_PasswordInfo, Label Lbl_UsernameInfo, Button Btn_GoToLobby, string username, string password, int balance)
+        public void AcconutMangementScene(Label Lbl_AccontBalance, Label Lbl_PasswordInfo, Label Lbl_UsernameInfo, Button Btn_GoToLobby, string username, string password, int balance, Button Btn_LogOut)
         {
             Lbl_UsernameInfo.Show();
             Lbl_PasswordInfo.Show();
@@ -54,6 +54,7 @@ namespace Casino
             Lbl_UsernameInfo.Text = "Username: " + username;
             Lbl_PasswordInfo.Text = "Password: " + password;
             Lbl_AccontBalance.Text = "Balance: " + balance.ToString();
+            Btn_LogOut.Show();
         }
 
 

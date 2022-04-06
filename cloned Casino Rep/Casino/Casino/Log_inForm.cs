@@ -20,9 +20,9 @@ namespace Casino
         readonly SceneClass Scene = new SceneClass();
         public int starterMoney = 2000;                                                 //sett värde
 
-        public List<string> usernames = new List<string>();
+        public List<string> usernameList = new List<string>();
         public List<string> passwordList = new List<string>();
-        public List<int> balance = new List<int>();
+        public List<int> balanceList = new List<int>();
 
 
         public Log_inForm()
@@ -31,84 +31,80 @@ namespace Casino
             HideAllComponents();
             Scene.StartScene(Lbl_password, Lbl_username, Btn_Login, Btn_CreateLogin, Tb_Password, Tb_UserName);
 
-            SetInformationInList(5, usernames);
-            SetInformationInList(6, passwordList);
+            SetInformationInList(3, usernameList);
+            SetInformationInList(4, passwordList);
+            SetBalanceInList(5, balanceList);
 
-            SetBalanceInList(7, passwordList);
-
+            
         }
 
-        private void SetInformationInList(int line, List<string> list)
+        private void SetInformationInList(int startLine, List<string> list)
         {
-            for (int i = line; i < File.ReadLines(MyFilename).Count() - 1; i++)
+            int counter = 1;
+
+            foreach (string line in System.IO.File.ReadLines(MyFilename))
             {
-                list.Add(File.ReadLines(MyFilename).Skip(i).Take(1).First());
+                if (counter - startLine > 0 && (counter - startLine)%3 == 0)
+                {
+                    list.Add(line);
+                }
+                counter++;
+            }
+        }
+
+        private void SetBalanceInList(int startLine, List<int> list)
+        {
+            int counter = 1;
+
+            foreach (string line in System.IO.File.ReadLines(MyFilename))
+            {
+                if (counter - startLine > 0 && (counter - startLine) % 3 == 0)
+                {
+                    list.Add(int.Parse(line));
+                }
+                counter++;
             }
 
         }
 
-        private void SetBalanceInList(int line, List<string> list)
-        {
-            for (int i = line; i < File.ReadLines(MyFilename).Count(); i++)
-            {
-                list.Add(File.ReadLines(MyFilename).Skip(i).Take(1).First());
-            }
-        }
+        public int activeIndex;
 
         private void Btn_Login_Click(object sender, EventArgs e)                      
         {
-
-            int usernameLine = CheckUsernameLine(Tb_UserName.Texts);
-            if (usernameLine == 0)
+            if (!usernameList.Contains(Tb_UserName.Texts))
             {
                 MessageBox.Show("Username not found");
                 return;
             }
-            if (!IsPassword(usernameLine, Tb_Password.Texts))
+            if (!passwordList.Contains(Tb_Password.Texts))
             {
                 MessageBox.Show("Password not found");
                 return;
             }
-            HideAllComponents();
-            Scene.AcconutMangementScene(Lbl_AccontBalance, Lbl_PasswordInfo, Lbl_UsernameInfo, Btn_GoToLobby, Tb_UserName.Texts, Tb_Password.Texts, GetAccountBalance(usernameLine));
-        }
-
-        private int GetAccountBalance(int usernameLine)
-        {
-            int accountBalance = int.Parse(File.ReadLines(MyFilename).Skip(usernameLine + 1).Take(1).First());
-            return accountBalance;
-            
-        }
-
-        private bool IsPassword(int usernameline, string password)
-        {
-            if (password == passwordList[usernameline])
-            {
-                return true;
-            }
-            return false;
-        }
-
-        private int CheckUsernameLine(string username)
-        {
             int counter = 0;
-
-            foreach (string line in System.IO.File.ReadLines(MyFilename))
+            foreach (string user in usernameList)
             {
-                counter++;
-                if (line == username)
+                if (Tb_UserName.Texts == usernameList[counter])
                 {
-                    return (counter - 5) / 3;
+                    activeIndex = counter;
                 }
             }
-            return 0;
+            if (passwordList[activeIndex] != Tb_Password.Texts)
+            {
+                MessageBox.Show("Wrong password");
+                return;
+            }
+
+
+            HideAllComponents();
+            Scene.AcconutMangementScene(Lbl_AccontBalance, Lbl_PasswordInfo, Lbl_UsernameInfo, Btn_GoToLobby, Tb_UserName.Texts, Tb_Password.Texts, balanceList[activeIndex], Btn_LogOut);
         }
 
+       
         private void Btn_CreateLogin_Click(object sender, EventArgs e)
         {
             HideAllComponents();
             Scene.UsercreateScene(Lbl_password, Lbl_username, Btn_Return, Btn_NewLoginInformation, Tb_Password, Tb_UserName);
-            //CheckTextfile(Tb_Password.Text);
         }
         private void AddUserInformationToTextFile(string information)
         {
@@ -125,7 +121,7 @@ namespace Casino
                 MessageBox.Show("Your new username or password not filled in");
                 return;
             }
-            if (CheckUsernameLine(Tb_UserName.Texts) != 0)
+            if (usernameList.Contains(Tb_UserName.Texts))
             {
                 MessageBox.Show("Your username is in use");
                 return;
@@ -134,7 +130,7 @@ namespace Casino
             AddUserInformationToTextFile(Tb_Password.Texts);
             AddUserInformationToTextFile(starterMoney.ToString());
             HideAllComponents();
-            Scene.AcconutMangementScene(Lbl_AccontBalance, Lbl_PasswordInfo, Lbl_UsernameInfo, Btn_GoToLobby, Tb_UserName.Texts, Tb_Password.Texts, GetAccountBalance(CheckUsernameLine(Tb_UserName.Texts)));
+            Scene.AcconutMangementScene(Lbl_AccontBalance, Lbl_PasswordInfo, Lbl_UsernameInfo, Btn_GoToLobby, Tb_UserName.Texts, Tb_Password.Texts, balanceList[activeIndex], Btn_LogOut);
         }
 
         private void Btn_Return_Click(object sender, EventArgs e)
@@ -186,6 +182,15 @@ namespace Casino
                     cnt.Hide();
                 }
             }
+        }
+
+        private void Btn_LogOut_Click(object sender, EventArgs e)
+        {
+            Tb_UserName.Texts = "";
+            Tb_Password.Texts = "";
+            HideAllComponents();
+            activeIndex = 0;
+            Scene.StartScene(Lbl_password, Lbl_username, Btn_Login, Btn_CreateLogin, Tb_Password, Tb_UserName);
         }
     }
 }
