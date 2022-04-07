@@ -36,7 +36,20 @@ namespace Casino
             SetBalanceInList(5, balanceList);
 
             
+
+
+            //Tb_Test.Show();
+
+            //for (int i = 0; i < passwordList.Count(); i++)
+            //{
+            //    Tb_Test.Texts += passwordList[i] + ", ";
+
+
+            //}
         }
+
+        
+
 
         private void SetInformationInList(int startLine, List<string> list)
         {
@@ -88,9 +101,12 @@ namespace Casino
                 {
                     activeIndex = counter;
                 }
+                counter++;
+
             }
             if (passwordList[activeIndex] != Tb_Password.Texts)
             {
+                
                 MessageBox.Show("Wrong password");
                 return;
             }
@@ -192,5 +208,7 @@ namespace Casino
             activeIndex = 0;
             Scene.StartScene(Lbl_password, Lbl_username, Btn_Login, Btn_CreateLogin, Tb_Password, Tb_UserName);
         }
+
+        
     }
 }

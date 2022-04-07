@@ -22,10 +22,6 @@ namespace Casino
 
         }
 
-
-
-
-
         private Size oldSize;
         private void Log_inForm_Load(object sender, EventArgs e) => oldSize = base.Size;
 
@@ -58,9 +54,12 @@ namespace Casino
         {
             Pb_Background.Image = Image.FromFile("EmptyTable.PNG");
 
+        }
+
+        private void Btn_GoToGame_Click(object sender, EventArgs e)
+        {
             BlackJackForm BlackJack = new BlackJackForm();
             BlackJack.Show();
-
         }
     }
 }
