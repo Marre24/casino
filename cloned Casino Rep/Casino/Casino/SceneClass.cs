@@ -57,6 +57,11 @@ namespace Casino
             Btn_LogOut.Show();
         }
 
+        public void LobbyStart(Button Btn_GoToGame, TextBox Tb_Balance, TextBox Tb_MoneyChosen)
+        {
+
+        }
+
 
     }
 }

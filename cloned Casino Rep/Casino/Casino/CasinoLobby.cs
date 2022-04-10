@@ -53,7 +53,7 @@ namespace Casino
         private void Btn_BlackJack_Click(object sender, EventArgs e)
         {
             Pb_Background.Image = Image.FromFile("EmptyTable.PNG");
-
+            Scene.LobbyStart(Btn_GoToGame, Tb_Balance, Tb_MoneyChosen);
         }
 
         private void Btn_GoToGame_Click(object sender, EventArgs e)

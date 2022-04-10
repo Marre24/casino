@@ -16,14 +16,15 @@ namespace Casino
 
     public partial class Log_inForm : Form
     {
-        readonly string MyFilename = "UserInformation.txt";
         readonly SceneClass Scene = new SceneClass();
         public int starterMoney = 2000;                                                 //sett värde
+        public int activeIndex;
+
+        readonly string users = "users.txt";
 
         public List<string> usernameList = new List<string>();
         public List<string> passwordList = new List<string>();
         public List<int> balanceList = new List<int>();
-
 
         public Log_inForm()
         {
@@ -31,56 +32,27 @@ namespace Casino
             HideAllComponents();
             Scene.StartScene(Lbl_password, Lbl_username, Btn_Login, Btn_CreateLogin, Tb_Password, Tb_UserName);
 
-            SetInformationInList(3, usernameList);
-            SetInformationInList(4, passwordList);
-            SetBalanceInList(5, balanceList);
+            List<Player> players = LoadUsers();
 
-            
-
-
-            //Tb_Test.Show();
-
-            //for (int i = 0; i < passwordList.Count(); i++)
-            //{
-            //    Tb_Test.Texts += passwordList[i] + ", ";
-
-
-            //}
+            balanceList = players.Select(p => p.balance).ToList();
+            usernameList = players.Select(p => p.username).ToList();
+            passwordList = players.Select(p => p.password).ToList();
         }
-
-        
-
-
-        private void SetInformationInList(int startLine, List<string> list)
+        private List<Player> LoadUsers()
         {
-            int counter = 1;
+           List<Player> players = new List<Player>();
 
-            foreach (string line in System.IO.File.ReadLines(MyFilename))
+            foreach (string userData in System.IO.File.ReadLines(users))
             {
-                if (counter - startLine > 0 && (counter - startLine)%3 == 0)
-                {
-                    list.Add(line);
-                }
-                counter++;
-            }
-        }
+                Player p = new Player(userData);
 
-        private void SetBalanceInList(int startLine, List<int> list)
-        {
-            int counter = 1;
-
-            foreach (string line in System.IO.File.ReadLines(MyFilename))
-            {
-                if (counter - startLine > 0 && (counter - startLine) % 3 == 0)
-                {
-                    list.Add(int.Parse(line));
-                }
-                counter++;
+                players.Add(p);
             }
 
+
+            return players;
         }
 
-        public int activeIndex;
 
         private void Btn_Login_Click(object sender, EventArgs e)                      
         {
@@ -102,31 +74,26 @@ namespace Casino
                     activeIndex = counter;
                 }
                 counter++;
-
             }
             if (passwordList[activeIndex] != Tb_Password.Texts)
             {
-                
                 MessageBox.Show("Wrong password");
                 return;
             }
-
-
             HideAllComponents();
             Scene.AcconutMangementScene(Lbl_AccontBalance, Lbl_PasswordInfo, Lbl_UsernameInfo, Btn_GoToLobby, Tb_UserName.Texts, Tb_Password.Texts, balanceList[activeIndex], Btn_LogOut);
         }
-
        
         private void Btn_CreateLogin_Click(object sender, EventArgs e)
         {
             HideAllComponents();
             Scene.UsercreateScene(Lbl_password, Lbl_username, Btn_Return, Btn_NewLoginInformation, Tb_Password, Tb_UserName);
         }
-        private void AddUserInformationToTextFile(string information)
+        private void AddUserInformationToTextFile(string username, string password , string starterBalance)
         {
-            using (StreamWriter sw = new StreamWriter(MyFilename, true))
+            using (StreamWriter sw = new StreamWriter(users, true))
             {
-                sw.WriteLine(information);
+                sw.WriteLine(username + ";" + password + ";" + starterBalance + ";");
                 sw.Close();
             }
         }
@@ -142,9 +109,8 @@ namespace Casino
                 MessageBox.Show("Your username is in use");
                 return;
             }
-            AddUserInformationToTextFile(Tb_UserName.Texts);
-            AddUserInformationToTextFile(Tb_Password.Texts);
-            AddUserInformationToTextFile(starterMoney.ToString());
+            AddUserInformationToTextFile(Tb_UserName.Texts, Tb_Password.Texts , starterMoney.ToString());
+
             HideAllComponents();
             Scene.AcconutMangementScene(Lbl_AccontBalance, Lbl_PasswordInfo, Lbl_UsernameInfo, Btn_GoToLobby, Tb_UserName.Texts, Tb_Password.Texts, balanceList[activeIndex], Btn_LogOut);
         }
