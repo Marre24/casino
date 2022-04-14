@@ -30,15 +30,15 @@ namespace Casino
         private void InitializeComponent()
         {
             this.Pb_Background = new System.Windows.Forms.PictureBox();
+            this.Sb_Money = new System.Windows.Forms.HScrollBar();
+            this.Btn_return = new Casino.CostomButtons();
+            this.Tb_Balance = new Casino.CostomTextBox();
+            this.Btn_GoToGame = new Casino.CostomButtons();
+            this.Tb_MoneyChosen = new Casino.CostomTextBox();
             this.Btn_exit = new Casino.CostomButtons();
-            this.costomButtons3 = new Casino.CostomButtons();
+            this.Btn_Slots = new Casino.CostomButtons();
             this.Btn_Poker = new Casino.CostomButtons();
             this.Btn_BlackJack = new Casino.CostomButtons();
-            this.Sb_Money = new System.Windows.Forms.HScrollBar();
-            this.Tb_MoneyChosen = new Casino.CostomTextBox();
-            this.Btn_GoToGame = new Casino.CostomButtons();
-            this.Tb_Balance = new Casino.CostomTextBox();
-            this.Btn_return = new Casino.CostomButtons();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_Background)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,6 +52,91 @@ namespace Casino
             this.Pb_Background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pb_Background.TabIndex = 0;
             this.Pb_Background.TabStop = false;
+            // 
+            // Sb_Money
+            // 
+            this.Sb_Money.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Sb_Money.Location = new System.Drawing.Point(640, 220);
+            this.Sb_Money.Name = "Sb_Money";
+            this.Sb_Money.Size = new System.Drawing.Size(256, 17);
+            this.Sb_Money.TabIndex = 5;
+            this.Sb_Money.Scroll += new System.Windows.Forms.ScrollEventHandler(this.Sb_Money_Scroll);
+            // 
+            // Btn_return
+            // 
+            this.Btn_return.BackColor = System.Drawing.Color.Red;
+            this.Btn_return.BackgroundColor = System.Drawing.Color.Red;
+            this.Btn_return.BorderColor = System.Drawing.Color.Black;
+            this.Btn_return.BorderRadius = 50;
+            this.Btn_return.BorderSize = 5;
+            this.Btn_return.FlatAppearance.BorderSize = 0;
+            this.Btn_return.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_return.Font = new System.Drawing.Font("MV Boli", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_return.ForeColor = System.Drawing.Color.White;
+            this.Btn_return.Location = new System.Drawing.Point(993, 220);
+            this.Btn_return.Name = "Btn_return";
+            this.Btn_return.Size = new System.Drawing.Size(167, 49);
+            this.Btn_return.TabIndex = 9;
+            this.Btn_return.TextColor = System.Drawing.Color.White;
+            this.Btn_return.UseVisualStyleBackColor = false;
+            // 
+            // Tb_Balance
+            // 
+            this.Tb_Balance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(92)))), ((int)(((byte)(30)))));
+            this.Tb_Balance.BorderColor = System.Drawing.Color.Yellow;
+            this.Tb_Balance.BorderFocusColor = System.Drawing.Color.Crimson;
+            this.Tb_Balance.BorderSize = 2;
+            this.Tb_Balance.Font = new System.Drawing.Font("MV Boli", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tb_Balance.ForeColor = System.Drawing.Color.White;
+            this.Tb_Balance.Location = new System.Drawing.Point(910, 154);
+            this.Tb_Balance.Margin = new System.Windows.Forms.Padding(4);
+            this.Tb_Balance.Multiline = false;
+            this.Tb_Balance.Name = "Tb_Balance";
+            this.Tb_Balance.Padding = new System.Windows.Forms.Padding(7);
+            this.Tb_Balance.PasswordChar = false;
+            this.Tb_Balance.Size = new System.Drawing.Size(250, 42);
+            this.Tb_Balance.TabIndex = 8;
+            this.Tb_Balance.Texts = "";
+            this.Tb_Balance.UnderlinedStyle = false;
+            // 
+            // Btn_GoToGame
+            // 
+            this.Btn_GoToGame.BackColor = System.Drawing.Color.Red;
+            this.Btn_GoToGame.BackgroundColor = System.Drawing.Color.Red;
+            this.Btn_GoToGame.BorderColor = System.Drawing.Color.Black;
+            this.Btn_GoToGame.BorderRadius = 50;
+            this.Btn_GoToGame.BorderSize = 5;
+            this.Btn_GoToGame.FlatAppearance.BorderSize = 0;
+            this.Btn_GoToGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_GoToGame.Font = new System.Drawing.Font("MV Boli", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_GoToGame.ForeColor = System.Drawing.Color.White;
+            this.Btn_GoToGame.Location = new System.Drawing.Point(442, 136);
+            this.Btn_GoToGame.Name = "Btn_GoToGame";
+            this.Btn_GoToGame.Size = new System.Drawing.Size(167, 49);
+            this.Btn_GoToGame.TabIndex = 7;
+            this.Btn_GoToGame.TextColor = System.Drawing.Color.White;
+            this.Btn_GoToGame.UseVisualStyleBackColor = false;
+            this.Btn_GoToGame.Click += new System.EventHandler(this.Btn_GoToGame_Click);
+            // 
+            // Tb_MoneyChosen
+            // 
+            this.Tb_MoneyChosen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(92)))), ((int)(((byte)(30)))));
+            this.Tb_MoneyChosen.BorderColor = System.Drawing.Color.Yellow;
+            this.Tb_MoneyChosen.BorderFocusColor = System.Drawing.Color.Crimson;
+            this.Tb_MoneyChosen.BorderSize = 2;
+            this.Tb_MoneyChosen.Font = new System.Drawing.Font("MV Boli", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tb_MoneyChosen.ForeColor = System.Drawing.Color.White;
+            this.Tb_MoneyChosen.Location = new System.Drawing.Point(640, 154);
+            this.Tb_MoneyChosen.Margin = new System.Windows.Forms.Padding(4);
+            this.Tb_MoneyChosen.Multiline = false;
+            this.Tb_MoneyChosen.Name = "Tb_MoneyChosen";
+            this.Tb_MoneyChosen.Padding = new System.Windows.Forms.Padding(7);
+            this.Tb_MoneyChosen.PasswordChar = false;
+            this.Tb_MoneyChosen.Size = new System.Drawing.Size(250, 42);
+            this.Tb_MoneyChosen.TabIndex = 6;
+            this.Tb_MoneyChosen.Texts = "";
+            this.Tb_MoneyChosen.UnderlinedStyle = true;
+            this.Tb_MoneyChosen._TextChanged += new System.EventHandler(this.Tb_MoneyChosen__TextChanged);
             // 
             // Btn_exit
             // 
@@ -73,24 +158,24 @@ namespace Casino
             this.Btn_exit.UseVisualStyleBackColor = false;
             this.Btn_exit.Click += new System.EventHandler(this.Btn_Exit_Click);
             // 
-            // costomButtons3
+            // Btn_Slots
             // 
-            this.costomButtons3.BackColor = System.Drawing.Color.Red;
-            this.costomButtons3.BackgroundColor = System.Drawing.Color.Red;
-            this.costomButtons3.BorderColor = System.Drawing.Color.Black;
-            this.costomButtons3.BorderRadius = 50;
-            this.costomButtons3.BorderSize = 5;
-            this.costomButtons3.FlatAppearance.BorderSize = 0;
-            this.costomButtons3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.costomButtons3.Font = new System.Drawing.Font("MV Boli", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.costomButtons3.ForeColor = System.Drawing.Color.White;
-            this.costomButtons3.Location = new System.Drawing.Point(924, 154);
-            this.costomButtons3.Name = "costomButtons3";
-            this.costomButtons3.Size = new System.Drawing.Size(167, 49);
-            this.costomButtons3.TabIndex = 3;
-            this.costomButtons3.Text = "Slots";
-            this.costomButtons3.TextColor = System.Drawing.Color.White;
-            this.costomButtons3.UseVisualStyleBackColor = false;
+            this.Btn_Slots.BackColor = System.Drawing.Color.Red;
+            this.Btn_Slots.BackgroundColor = System.Drawing.Color.Red;
+            this.Btn_Slots.BorderColor = System.Drawing.Color.Black;
+            this.Btn_Slots.BorderRadius = 50;
+            this.Btn_Slots.BorderSize = 5;
+            this.Btn_Slots.FlatAppearance.BorderSize = 0;
+            this.Btn_Slots.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Slots.Font = new System.Drawing.Font("MV Boli", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Slots.ForeColor = System.Drawing.Color.White;
+            this.Btn_Slots.Location = new System.Drawing.Point(924, 154);
+            this.Btn_Slots.Name = "Btn_Slots";
+            this.Btn_Slots.Size = new System.Drawing.Size(167, 49);
+            this.Btn_Slots.TabIndex = 3;
+            this.Btn_Slots.Text = "Slots";
+            this.Btn_Slots.TextColor = System.Drawing.Color.White;
+            this.Btn_Slots.UseVisualStyleBackColor = false;
             // 
             // Btn_Poker
             // 
@@ -131,89 +216,6 @@ namespace Casino
             this.Btn_BlackJack.UseVisualStyleBackColor = false;
             this.Btn_BlackJack.Click += new System.EventHandler(this.Btn_BlackJack_Click);
             // 
-            // Sb_Money
-            // 
-            this.Sb_Money.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Sb_Money.Location = new System.Drawing.Point(640, 220);
-            this.Sb_Money.Name = "Sb_Money";
-            this.Sb_Money.Size = new System.Drawing.Size(256, 17);
-            this.Sb_Money.TabIndex = 5;
-            // 
-            // Tb_MoneyChosen
-            // 
-            this.Tb_MoneyChosen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(92)))), ((int)(((byte)(30)))));
-            this.Tb_MoneyChosen.BorderColor = System.Drawing.Color.Yellow;
-            this.Tb_MoneyChosen.BorderFocusColor = System.Drawing.Color.Crimson;
-            this.Tb_MoneyChosen.BorderSize = 2;
-            this.Tb_MoneyChosen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tb_MoneyChosen.ForeColor = System.Drawing.Color.White;
-            this.Tb_MoneyChosen.Location = new System.Drawing.Point(640, 154);
-            this.Tb_MoneyChosen.Margin = new System.Windows.Forms.Padding(4);
-            this.Tb_MoneyChosen.Multiline = false;
-            this.Tb_MoneyChosen.Name = "Tb_MoneyChosen";
-            this.Tb_MoneyChosen.Padding = new System.Windows.Forms.Padding(7);
-            this.Tb_MoneyChosen.PasswordChar = false;
-            this.Tb_MoneyChosen.Size = new System.Drawing.Size(250, 31);
-            this.Tb_MoneyChosen.TabIndex = 6;
-            this.Tb_MoneyChosen.Texts = "";
-            this.Tb_MoneyChosen.UnderlinedStyle = true;
-            // 
-            // Btn_GoToGame
-            // 
-            this.Btn_GoToGame.BackColor = System.Drawing.Color.Red;
-            this.Btn_GoToGame.BackgroundColor = System.Drawing.Color.Red;
-            this.Btn_GoToGame.BorderColor = System.Drawing.Color.Black;
-            this.Btn_GoToGame.BorderRadius = 50;
-            this.Btn_GoToGame.BorderSize = 5;
-            this.Btn_GoToGame.FlatAppearance.BorderSize = 0;
-            this.Btn_GoToGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_GoToGame.Font = new System.Drawing.Font("MV Boli", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_GoToGame.ForeColor = System.Drawing.Color.White;
-            this.Btn_GoToGame.Location = new System.Drawing.Point(442, 136);
-            this.Btn_GoToGame.Name = "Btn_GoToGame";
-            this.Btn_GoToGame.Size = new System.Drawing.Size(167, 49);
-            this.Btn_GoToGame.TabIndex = 7;
-            this.Btn_GoToGame.TextColor = System.Drawing.Color.White;
-            this.Btn_GoToGame.UseVisualStyleBackColor = false;
-            this.Btn_GoToGame.Click += new System.EventHandler(this.Btn_GoToGame_Click);
-            // 
-            // Tb_Balance
-            // 
-            this.Tb_Balance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(92)))), ((int)(((byte)(30)))));
-            this.Tb_Balance.BorderColor = System.Drawing.Color.Yellow;
-            this.Tb_Balance.BorderFocusColor = System.Drawing.Color.Crimson;
-            this.Tb_Balance.BorderSize = 2;
-            this.Tb_Balance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tb_Balance.ForeColor = System.Drawing.Color.White;
-            this.Tb_Balance.Location = new System.Drawing.Point(910, 154);
-            this.Tb_Balance.Margin = new System.Windows.Forms.Padding(4);
-            this.Tb_Balance.Multiline = false;
-            this.Tb_Balance.Name = "Tb_Balance";
-            this.Tb_Balance.Padding = new System.Windows.Forms.Padding(7);
-            this.Tb_Balance.PasswordChar = false;
-            this.Tb_Balance.Size = new System.Drawing.Size(250, 31);
-            this.Tb_Balance.TabIndex = 8;
-            this.Tb_Balance.Texts = "";
-            this.Tb_Balance.UnderlinedStyle = false;
-            // 
-            // Btn_return
-            // 
-            this.Btn_return.BackColor = System.Drawing.Color.Red;
-            this.Btn_return.BackgroundColor = System.Drawing.Color.Red;
-            this.Btn_return.BorderColor = System.Drawing.Color.Black;
-            this.Btn_return.BorderRadius = 50;
-            this.Btn_return.BorderSize = 5;
-            this.Btn_return.FlatAppearance.BorderSize = 0;
-            this.Btn_return.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_return.Font = new System.Drawing.Font("MV Boli", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_return.ForeColor = System.Drawing.Color.White;
-            this.Btn_return.Location = new System.Drawing.Point(993, 220);
-            this.Btn_return.Name = "Btn_return";
-            this.Btn_return.Size = new System.Drawing.Size(167, 49);
-            this.Btn_return.TabIndex = 9;
-            this.Btn_return.TextColor = System.Drawing.Color.White;
-            this.Btn_return.UseVisualStyleBackColor = false;
-            // 
             // CasinoLobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,7 +228,7 @@ namespace Casino
             this.Controls.Add(this.Tb_MoneyChosen);
             this.Controls.Add(this.Sb_Money);
             this.Controls.Add(this.Btn_exit);
-            this.Controls.Add(this.costomButtons3);
+            this.Controls.Add(this.Btn_Slots);
             this.Controls.Add(this.Btn_Poker);
             this.Controls.Add(this.Btn_BlackJack);
             this.Controls.Add(this.Pb_Background);
@@ -243,7 +245,7 @@ namespace Casino
         private System.Windows.Forms.PictureBox Pb_Background;
         private CostomButtons Btn_BlackJack;
         private CostomButtons Btn_Poker;
-        private CostomButtons costomButtons3;
+        private CostomButtons Btn_Slots;
         private CostomButtons Btn_exit;
         private System.Windows.Forms.HScrollBar Sb_Money;
         private CostomTextBox Tb_MoneyChosen;

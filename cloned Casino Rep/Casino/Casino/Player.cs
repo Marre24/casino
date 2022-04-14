@@ -16,7 +16,7 @@ namespace Casino
         {
             username = playerData.Split(';')[0];
             password = playerData.Split(';')[1];
-            balance = int.Parse(playerData.Split(';')[2]) ;
+            balance = int.Parse(playerData.Split(';')[2]);
         }
 
         

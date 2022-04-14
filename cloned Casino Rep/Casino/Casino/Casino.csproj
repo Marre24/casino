@@ -53,7 +53,8 @@
       <DependentUpon>BlackJackForm.cs</DependentUpon>
     </Compile>
     <Compile Include="BlackJackPlayer.cs" />
-    <Compile Include="CardClass.cs" />
+    <Compile Include="Card.cs" />
+    <Compile Include="Decks.cs" />
     <Compile Include="CasinoLobby.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,7 +80,6 @@
     <Compile Include="CostomButtons.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Table.cs" />
     <EmbeddedResource Include="BlackJackForm.resx">
       <DependentUpon>BlackJackForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Casino
 {
+    [DefaultEvent ("_TextChanged")]
     public partial class CostomTextBox : UserControl
     {
         //Metoder kommer inte att funka, om du vill så får du kolla på videon igen ungefär vid 15.00  https://www.youtube.com/watch?v=CkpUQYzYCC8&t=108s&ab_channel=RJCodeAdvanceEN
@@ -26,6 +27,11 @@ namespace Casino
         {
             InitializeComponent();
         }
+
+        //Events
+        public event EventHandler _TextChanged;
+
+
 
         //properties
         [Category("TextboxExtra")]
@@ -193,6 +199,14 @@ namespace Casino
         {
             isFocused= false;
             this.Invalidate();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (_TextChanged != null)
+            {
+                _TextChanged.Invoke(sender, e);
+            }
         }
     }
 }

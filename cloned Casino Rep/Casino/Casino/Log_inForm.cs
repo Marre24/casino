@@ -26,6 +26,7 @@ namespace Casino
         public List<string> passwordList = new List<string>();
         public List<int> balanceList = new List<int>();
 
+
         public Log_inForm()
         {
             InitializeComponent();
@@ -37,10 +38,11 @@ namespace Casino
             balanceList = players.Select(p => p.balance).ToList();
             usernameList = players.Select(p => p.username).ToList();
             passwordList = players.Select(p => p.password).ToList();
+
         }
         private List<Player> LoadUsers()
         {
-           List<Player> players = new List<Player>();
+            List<Player> players = new List<Player>();
 
             foreach (string userData in System.IO.File.ReadLines(users))
             {
@@ -54,7 +56,7 @@ namespace Casino
         }
 
 
-        private void Btn_Login_Click(object sender, EventArgs e)                      
+        private void Btn_Login_Click(object sender, EventArgs e)
         {
             if (!usernameList.Contains(Tb_UserName.Texts))
             {
@@ -83,13 +85,13 @@ namespace Casino
             HideAllComponents();
             Scene.AcconutMangementScene(Lbl_AccontBalance, Lbl_PasswordInfo, Lbl_UsernameInfo, Btn_GoToLobby, Tb_UserName.Texts, Tb_Password.Texts, balanceList[activeIndex], Btn_LogOut);
         }
-       
+
         private void Btn_CreateLogin_Click(object sender, EventArgs e)
         {
             HideAllComponents();
             Scene.UsercreateScene(Lbl_password, Lbl_username, Btn_Return, Btn_NewLoginInformation, Tb_Password, Tb_UserName);
         }
-        private void AddUserInformationToTextFile(string username, string password , string starterBalance)
+        private void AddUserInformationToTextFile(string username, string password, string starterBalance)
         {
             using (StreamWriter sw = new StreamWriter(users, true))
             {
@@ -109,7 +111,7 @@ namespace Casino
                 MessageBox.Show("Your username is in use");
                 return;
             }
-            AddUserInformationToTextFile(Tb_UserName.Texts, Tb_Password.Texts , starterMoney.ToString());
+            AddUserInformationToTextFile(Tb_UserName.Texts, Tb_Password.Texts, starterMoney.ToString());
 
             HideAllComponents();
             Scene.AcconutMangementScene(Lbl_AccontBalance, Lbl_PasswordInfo, Lbl_UsernameInfo, Btn_GoToLobby, Tb_UserName.Texts, Tb_Password.Texts, balanceList[activeIndex], Btn_LogOut);
@@ -175,6 +177,6 @@ namespace Casino
             Scene.StartScene(Lbl_password, Lbl_username, Btn_Login, Btn_CreateLogin, Tb_Password, Tb_UserName);
         }
 
-        
+
     }
 }

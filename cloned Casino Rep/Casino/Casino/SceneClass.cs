@@ -57,9 +57,22 @@ namespace Casino
             Btn_LogOut.Show();
         }
 
-        public void LobbyStart(Button Btn_GoToGame, TextBox Tb_Balance, TextBox Tb_MoneyChosen)
+        public void LobbyStartScene(Button Btn_BlackJack, Button Btn_Poker, Button Btn_Slots, PictureBox Pb_Background)
         {
+            Btn_Poker.Show();
+            Btn_BlackJack.Show();
+            Btn_Slots.Show();
+            Pb_Background.Show();
+        }
 
+
+        public void BalanceSelectScene(Button Btn_GoToGame, CostomTextBox Tb_Balance, CostomTextBox Tb_MoneyChosen, PictureBox Pb_Background, ScrollBar Sb_Money)
+        {
+            Btn_GoToGame.Show();
+            Tb_MoneyChosen.Show();
+            Tb_Balance.Show();
+            Pb_Background.Show();
+            Sb_Money.Show();
         }
 
 

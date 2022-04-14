@@ -19,6 +19,8 @@ namespace Casino
             string lobbyImage = "LobbyPicV2.PNG";
             Scene.LobbyScene(Pb_Background, lobbyImage);
             Pb_Background.Dock = DockStyle.Fill;
+            HideAllComponents();
+            Scene.LobbyStartScene(Btn_BlackJack, Btn_Poker, Btn_Slots, Pb_Background);
 
         }
 
@@ -53,13 +55,61 @@ namespace Casino
         private void Btn_BlackJack_Click(object sender, EventArgs e)
         {
             Pb_Background.Image = Image.FromFile("EmptyTable.PNG");
-            Scene.LobbyStart(Btn_GoToGame, Tb_Balance, Tb_MoneyChosen);
-        }
 
+            HideAllComponents();
+            Scene.BalanceSelectScene(Btn_GoToGame, Tb_Balance, Tb_MoneyChosen, Pb_Background, Sb_Money);
+
+        }
+        public void HideAllComponents()
+        {
+            foreach (Control cnt in this.Controls)
+            {
+                if (cnt != Btn_exit)
+                {
+                    cnt.Hide();
+                }
+            }
+        }
         private void Btn_GoToGame_Click(object sender, EventArgs e)
         {
             BlackJackForm BlackJack = new BlackJackForm();
             BlackJack.Show();
+        }
+
+        private void Tb_MoneyChosen__TextChanged(object sender, EventArgs e)
+        {
+            if (Tb_MoneyChosen.Texts != "")
+            {
+                if (!IsOnlyNums(Tb_MoneyChosen.Texts))
+                {
+                    MessageBox.Show("The input does not only contain numbers");
+                    Tb_MoneyChosen.Texts = "";
+                    return;
+                }
+                //if (int.Parse(Tb_MoneyChosen.Texts))
+                //{
+
+                //}
+
+                Sb_Money.Value = int.Parse(Tb_MoneyChosen.Texts);
+            }
+
+        }
+
+        private bool IsOnlyNums(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+
+            return true;
+        }
+
+        private void Sb_Money_Scroll(object sender, ScrollEventArgs e)
+        {
+            Tb_MoneyChosen.Texts = Sb_Money.Value.ToString();
         }
     }
 }

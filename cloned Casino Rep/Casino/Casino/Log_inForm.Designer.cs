@@ -247,7 +247,7 @@ namespace Casino
             this.Tb_Password.BorderFocusColor = System.Drawing.Color.LightCoral;
             this.Tb_Password.BorderSize = 4;
             this.Tb_Password.Font = new System.Drawing.Font("MV Boli", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tb_Password.ForeColor = System.Drawing.Color.Black;
+            this.Tb_Password.ForeColor = System.Drawing.Color.White;
             this.Tb_Password.Location = new System.Drawing.Point(597, 317);
             this.Tb_Password.Margin = new System.Windows.Forms.Padding(4);
             this.Tb_Password.Multiline = false;
@@ -266,7 +266,7 @@ namespace Casino
             this.Tb_UserName.BorderFocusColor = System.Drawing.Color.LightCoral;
             this.Tb_UserName.BorderSize = 4;
             this.Tb_UserName.Font = new System.Drawing.Font("MV Boli", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tb_UserName.ForeColor = System.Drawing.Color.Black;
+            this.Tb_UserName.ForeColor = System.Drawing.Color.White;
             this.Tb_UserName.Location = new System.Drawing.Point(597, 249);
             this.Tb_UserName.Margin = new System.Windows.Forms.Padding(4);
             this.Tb_UserName.Multiline = false;
