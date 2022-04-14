@@ -21,9 +21,8 @@ namespace Casino
             return $"{color.ToString()} {value.ToString()}";
         }
 
-        public int GetIndex(string value)
+        public static int GetIndex(string value)
         {
-
             return (int)Enum.Parse(typeof(CardValue), value);
         }
     }

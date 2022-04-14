@@ -83,6 +83,7 @@
             this.Pb_EmpyTable.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pb_EmpyTable.TabIndex = 0;
             this.Pb_EmpyTable.TabStop = false;
+            this.Pb_EmpyTable.Click += new System.EventHandler(this.Pb_EmpyTable_Click);
             // 
             // Pb_DealerLeftCard
             // 

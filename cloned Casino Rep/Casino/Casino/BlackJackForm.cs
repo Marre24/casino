@@ -26,27 +26,24 @@ namespace Casino
             deck.ShuffleDeck();
             
         }
-        public Image GetCardPic(string value, string color)
+        public Image GetCardPic(CardValue value, CardColor color)
         {
-            if (1 < c.GetIndex(value) && c.GetIndex(value) <= 10)
+            if (CardValue.ace < value && value <= CardValue.ten)
             {
-                
-                value = c.GetIndex(value).ToString();
-                return Image.FromFile($"{value}_of_{color}.PNG");
-
+                string valueString = ((int)value).ToString();
+                return Image.FromFile($"{valueString}_of_{color}.PNG");
             }
-            if (c.GetIndex(value) == 1)
+            if (value == CardValue.ace)
             {
                 return Image.FromFile($"{value}_of_{color}.PNG");
             }
-            color += "2";
-            return Image.FromFile($"{value}_of_{color}.PNG");
+            return Image.FromFile($"{value}_of_{color}2.PNG");
         }
 
         private void Btn_startRound_Click(object sender, EventArgs e)
         {
             c = deck.DrawCard();
-            Pb_EmpyTable.Image = GetCardPic(c.value.ToString(), c.color.ToString());
+            Pb_EmpyTable.Image = GetCardPic(c.value, c.color);
         }
 
 
@@ -118,6 +115,11 @@ namespace Casino
         private void Btn_Player4Join_Click(object sender, EventArgs e)
         {
             scene.ShowPlayerComponents(Btn_Player4Hit, Btn_Player4Join, Btn_Player4Stand, Tb_Player4Username);
+        }
+
+        private void Pb_EmpyTable_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

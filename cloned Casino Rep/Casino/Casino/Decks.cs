@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Casino
 {
-    public enum CardValue
+    public enum CardValue : int
     {
         ace = 1,
         two = 2,
@@ -24,7 +24,7 @@ namespace Casino
         queen = 12,
         king = 13
     }
-    public enum CardColor
+    public enum CardColor : int
     {
         spades = 1,
         clubs = 2,
