@@ -4,35 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace Casino
 {
-    class Decks : List<Card>
+    public enum CardValue
     {
-        public enum Value
-        {
-            ace = 1,
-            two = 2,
-            three = 3,
-            four = 4,
-            five = 5,
-            six = 6,
-            seven = 7,
-            eight = 8,
-            nine = 9,
-            ten = 10,
-            knight = 11,
-            queen = 12,
-            king = 13
-        }
+        ace = 1,
+        two = 2,
+        three = 3,
+        four = 4,
+        five = 5,
+        six = 6,
+        seven = 7,
+        eight = 8,
+        nine = 9,
+        ten = 10,
+        knight = 11,
+        queen = 12,
+        king = 13
+    }
+    public enum CardColor
+    {
+        spades = 1,
+        cloves = 2,
+        hearts = 3,
+        diamonds = 4
+    }
 
-        public enum Color
-        {
-            spades,
-            cloves,
-            hearts,
-            diamonds
-        }
+    class Deck
+    {
 
+        private static Random rng = new Random();
         //public Decks CreateDecks(int deckCount)
         //{
         //    Decks decks = new Decks();
@@ -45,26 +48,40 @@ namespace Casino
 
 
 
-        int valueCounter = 0;
-        int colorCounter = 0;
         public List<Card> deck = new List<Card>();
 
-        private List<Card> CreateOneDeck()
+        public List<Card> SetupDeck()
         {
-            foreach (int i in Enum.GetValues(typeof(Color)))
+            foreach (int colorIndex in Enum.GetValues(typeof(CardColor)))
             {
-                var color = (Color)colorCounter;
-                foreach (int index in Enum.GetValues(typeof(Value)))
+                var color = (CardColor)colorIndex;
+                foreach (int cardIndex in Enum.GetValues(typeof(CardValue)))
                 {
-                    var value = (Value)valueCounter; 
-                    Card card = new Card(Convert.ToString(color), Convert.ToInt32(value));
+                    var value = (CardValue)cardIndex; 
+                    Card card = new Card(color, value);
                     deck.Add(card);
-                    valueCounter++;
                 }
-                colorCounter++;
             }
-
             return deck;
+        }
+
+        public void ShuffleDeck()
+        {
+            int n = deck.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                Card value = deck[k];
+                deck[k] = deck[n];
+                deck[n] = value;
+            }
+        }
+        public Card DrawCard()
+        {
+            Card card = deck[0];
+            deck.RemoveAt(0);
+            return card;
         }
 
         //public List<Card> deck;

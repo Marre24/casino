@@ -14,6 +14,8 @@ namespace Casino
         [STAThread]
         static void Main()
         {
+            Deck deck = new Deck(); 
+            deck.SetupDeck();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Log_inForm());

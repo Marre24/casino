@@ -8,12 +8,17 @@ namespace Casino
 {
     public class Card
     {
-        public string color;
-        public int value;
-        public Card(string color, int value)
+        public CardColor color;
+        public CardValue value;
+        public Card(CardColor color, CardValue value)
         {
-            color = this.color;
-            value = this.value;
+            this.color = color;
+            this.value = value;
+        }
+
+        public override string ToString()
+        {
+            return $"{color.ToString()} {value.ToString()}";
         }
     }
 

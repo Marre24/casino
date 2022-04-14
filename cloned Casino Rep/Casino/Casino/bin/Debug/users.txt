@@ -1,3 +1,4 @@
 Maxi;a;2000
 aled;b;4000
 a;a;2000;
+theodor;2;2000;
