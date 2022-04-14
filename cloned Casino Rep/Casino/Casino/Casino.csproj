@@ -52,7 +52,7 @@
     <Compile Include="BlackJackForm.Designer.cs">
       <DependentUpon>BlackJackForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BlackJackPlayer.cs" />
+    <Compile Include="BlackJackDealer.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="Decks.cs" />
     <Compile Include="CasinoLobby.cs">

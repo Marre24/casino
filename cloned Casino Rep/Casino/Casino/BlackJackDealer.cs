@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Casino
 {
-    class BlackJackPlayer
+    class BlackJackDealer
     {
 
 

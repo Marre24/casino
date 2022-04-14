@@ -20,33 +20,29 @@ namespace Casino
         eight = 8,
         nine = 9,
         ten = 10,
-        knight = 11,
+        jack = 11,
         queen = 12,
         king = 13
     }
     public enum CardColor
     {
         spades = 1,
-        cloves = 2,
+        clubs = 2,
         hearts = 3,
         diamonds = 4
     }
 
     class Deck
     {
-
         private static Random rng = new Random();
-        //public Decks CreateDecks(int deckCount)
-        //{
-        //    Decks decks = new Decks();
-        //    for (int i = 0; i < deckCount; i++)
-        //    {
-        //        decks.Add(CreateOneDeck());
-        //    }
-        //    return decks;
-        //}
-
-
+        public List<Card> CreateDecks(int deckCount)
+        {
+            for (int i = 0; i < deckCount; i++)
+            {
+                SetupDeck();
+            }
+            return deck;
+        }
 
         public List<Card> deck = new List<Card>();
 
@@ -83,18 +79,5 @@ namespace Casino
             deck.RemoveAt(0);
             return card;
         }
-
-        //public List<Card> deck;
-
-
-        //public List<Card> CreateOneDeck()
-        //{
-
-
-        //    return deck;
-        //}
-
-
-
     }
 }

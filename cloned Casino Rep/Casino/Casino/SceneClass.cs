@@ -74,7 +74,23 @@ namespace Casino
             Pb_Background.Show();
             Sb_Money.Show();
         }
+        public void BlackJackScene(Button Btn_Player1Join, Button Btn_Player2Join, Button Btn_Player3Join, Button Btn_Player4Join, Button Btn_startRound)
+        {
+            Btn_startRound.Show();
+            Btn_Player1Join.Show();
+            Btn_Player2Join.Show();
+            Btn_Player3Join.Show();
+            Btn_Player4Join.Show();
 
+        }
+
+        public void ShowPlayerComponents(Button Btn_PlayerHit, Button Btn_PlayerJoin, Button Btn_PlayerStand, CostomTextBox Tb_PlayerUsername)
+        {
+            Btn_PlayerHit.Show();
+            Btn_PlayerJoin.Hide();
+            Btn_PlayerStand.Show();
+            Tb_PlayerUsername.Show();
+        }
 
     }
 }
