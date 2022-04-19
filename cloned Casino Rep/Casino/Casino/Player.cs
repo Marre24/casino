@@ -8,19 +8,6 @@ namespace Casino
 {
     internal class Player
     {
-        public readonly string username;
-        public string password;
-        public readonly int balance;
-
-        public Player(string playerData)
-        {
-            username = playerData.Split(';')[0];
-            password = playerData.Split(';')[1];
-            balance = int.Parse(playerData.Split(';')[2]);
-        }
-
-        
-        public override string ToString() { return username; }
 
 
     }

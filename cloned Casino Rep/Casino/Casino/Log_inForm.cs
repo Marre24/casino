@@ -33,20 +33,22 @@ namespace Casino
             HideAllComponents();
             Scene.StartScene(Lbl_password, Lbl_username, Btn_Login, Btn_CreateLogin, Tb_Password, Tb_UserName);
 
-            List<Player> players = LoadUsers();
+            List<PlayerAccount> players = LoadUsers();
 
             balanceList = players.Select(p => p.balance).ToList();
             usernameList = players.Select(p => p.username).ToList();
             passwordList = players.Select(p => p.password).ToList();
 
+            BlackJackForm BlackJack = new BlackJackForm();
+            BlackJack.Show();
         }
-        private List<Player> LoadUsers()
+        private List<PlayerAccount> LoadUsers()
         {
-            List<Player> players = new List<Player>();
+            List<PlayerAccount> players = new List<PlayerAccount>();
 
             foreach (string userData in System.IO.File.ReadLines(users))
             {
-                Player p = new Player(userData);
+                PlayerAccount p = new PlayerAccount(userData);
 
                 players.Add(p);
             }

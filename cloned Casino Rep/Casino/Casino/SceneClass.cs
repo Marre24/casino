@@ -92,5 +92,50 @@ namespace Casino
             Tb_PlayerUsername.Show();
         }
 
+        public void RoundScene(List<Player> activePlayers,PictureBox Pb_DealerLeftCard, PictureBox Pb_DealerRightCard, PictureBox Pb_Player1LeftCard, PictureBox Pb_Player1RightCard, PictureBox Pb_Player2LeftCard, PictureBox Pb_Player2RightCard, PictureBox Pb_Player3LeftCard, PictureBox Pb_Player3RightCard, PictureBox Pb_Player4LeftCard, PictureBox Pb_Player4RightCard, CostomTextBox Tb_Player1SumValue, CostomTextBox Tb_Player2SumValue, CostomTextBox Tb_Player3SumValue, CostomTextBox Tb_Player4SumValue)
+        {
+            Pb_DealerLeftCard.Show();
+            Pb_DealerRightCard.Show(); 
+            if (activePlayers.Count > 0)
+            {
+                Pb_Player1LeftCard.Show();
+                Pb_Player1RightCard.Show();
+                Tb_Player1SumValue.Show();
+            }
+            if (activePlayers.Count > 1)
+            {
+                Pb_Player2LeftCard.Show();
+                Pb_Player2RightCard.Show();
+                Tb_Player2SumValue.Show();
+            }
+            if (activePlayers.Count > 2)
+            {
+                Pb_Player3LeftCard.Show();
+                Pb_Player3RightCard.Show();
+                Tb_Player3SumValue.Show();
+            }
+            if (activePlayers.Count > 3)
+            {
+                Pb_Player4LeftCard.Show();
+                Pb_Player4RightCard.Show();
+                Tb_Player4SumValue.Show();
+            }
+        }
+        public void BustScene(Button Btn_PlayerHit, Button Btn_PlayerStand)
+        {
+            Btn_PlayerHit.Hide();
+            Btn_PlayerStand.Hide();
+
+        }
+
+        public void StandScene(Button Btn_PlayerHit, Button Btn_PlayerStand)
+        {
+            Btn_PlayerHit.Hide();
+            Btn_PlayerStand.Hide();
+        }
+
+
+
+
     }
 }
