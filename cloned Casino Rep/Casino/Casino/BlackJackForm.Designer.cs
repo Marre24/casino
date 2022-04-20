@@ -130,7 +130,7 @@
             // 
             // Pb_Player1RightCard
             // 
-            this.Pb_Player1RightCard.Location = new System.Drawing.Point(282, 426);
+            this.Pb_Player1RightCard.Location = new System.Drawing.Point(280, 426);
             this.Pb_Player1RightCard.Name = "Pb_Player1RightCard";
             this.Pb_Player1RightCard.Size = new System.Drawing.Size(55, 80);
             this.Pb_Player1RightCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -139,7 +139,7 @@
             // 
             // Pb_Player1LeftCard
             // 
-            this.Pb_Player1LeftCard.Location = new System.Drawing.Point(199, 426);
+            this.Pb_Player1LeftCard.Location = new System.Drawing.Point(200, 426);
             this.Pb_Player1LeftCard.Name = "Pb_Player1LeftCard";
             this.Pb_Player1LeftCard.Size = new System.Drawing.Size(55, 80);
             this.Pb_Player1LeftCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -423,6 +423,7 @@
             this.Btn_Player3Hit.Text = "Hit";
             this.Btn_Player3Hit.TextColor = System.Drawing.SystemColors.MenuText;
             this.Btn_Player3Hit.UseVisualStyleBackColor = false;
+            this.Btn_Player3Hit.Click += new System.EventHandler(this.Btn_Player3Hit_Click);
             // 
             // Tb_Player4Username
             // 
@@ -501,6 +502,7 @@
             this.Btn_Player4Hit.Text = "Hit";
             this.Btn_Player4Hit.TextColor = System.Drawing.SystemColors.MenuText;
             this.Btn_Player4Hit.UseVisualStyleBackColor = false;
+            this.Btn_Player4Hit.Click += new System.EventHandler(this.Btn_Player4Hit_Click);
             // 
             // Tb_Player1Username
             // 
@@ -659,6 +661,7 @@
             this.Btn_Player2Hit.Text = "Hit";
             this.Btn_Player2Hit.TextColor = System.Drawing.SystemColors.MenuText;
             this.Btn_Player2Hit.UseVisualStyleBackColor = false;
+            this.Btn_Player2Hit.Click += new System.EventHandler(this.Btn_Player2Hit_Click);
             // 
             // Btn_exit
             // 

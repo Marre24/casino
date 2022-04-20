@@ -77,50 +77,71 @@ namespace Casino
 
         private void CalcSums(int activePlayer, Card c)
         {
-
-            if (c.value > CardValue.ten)
-                c.value = CardValue.ten;
-
-            if (c.value == CardValue.ace)
-                c.value = CardValue.jack;
-
             if (activePlayer == 1)
             {
                 player1CardValues.Add((int)c.value);
+
+                if (c.value > CardValue.ten)
+                    c.value = CardValue.ten;
+
+                if (c.value == CardValue.ace)
+                    c.value = CardValue.jack;
+
                 Tb_Player1SumValue.Texts = Convert.ToString(int.Parse(Tb_Player1SumValue.Texts) + (int)c.value);
-                if (player1CardValues.Contains(11) && int.Parse(Tb_Player1SumValue.Texts) > 21)
+                if (player1CardValues.Contains((int)CardValue.ace) && int.Parse(Tb_Player1SumValue.Texts) > 21)
                 {
-                    player1CardValues.Remove(11);
+                    player1CardValues.Remove((int)CardValue.ace);
                     Tb_Player1SumValue.Texts = Convert.ToString(int.Parse(Tb_Player1SumValue.Texts) - 11);
                 }
             }
             if (activePlayer == 2)
             {
                 player2CardValues.Add((int)c.value);
+
+                if (c.value > CardValue.ten)
+                    c.value = CardValue.ten;
+
+                if (c.value == CardValue.ace)
+                    c.value = CardValue.jack;
+
                 Tb_Player2SumValue.Texts = Convert.ToString(int.Parse(Tb_Player2SumValue.Texts) + (int)c.value);
-                if (player2CardValues.Contains(11) && int.Parse(Tb_Player2SumValue.Texts) > 21)
+                if (player2CardValues.Contains((int)CardValue.ace) && int.Parse(Tb_Player2SumValue.Texts) > 21)
                 {
-                    player2CardValues.Remove(11);
+                    player2CardValues.Remove((int)CardValue.ace);
                     Tb_Player2SumValue.Texts = Convert.ToString(int.Parse(Tb_Player2SumValue.Texts) - 11);
                 }
             }
             if (activePlayer == 3)
             {
                 player3CardValues.Add((int)c.value);
+
+                if (c.value > CardValue.ten)
+                    c.value = CardValue.ten;
+
+                if (c.value == CardValue.ace)
+                    c.value = CardValue.jack;
+
                 Tb_Player3SumValue.Texts = Convert.ToString(int.Parse(Tb_Player3SumValue.Texts) + (int)c.value);
-                if (player3CardValues.Contains(11) && int.Parse(Tb_Player3SumValue.Texts) > 21)
+                if (player3CardValues.Contains((int)CardValue.ace) && int.Parse(Tb_Player3SumValue.Texts) > 21)
                 {
-                    player3CardValues.Remove(11);
+                    player3CardValues.Remove((int)CardValue.ace);
                     Tb_Player3SumValue.Texts = Convert.ToString(int.Parse(Tb_Player3SumValue.Texts) - 11);
                 }
             }
             if (activePlayer == 4)
             {
                 player4CardValues.Add((int)c.value);
+
+                if (c.value > CardValue.ten)
+                    c.value = CardValue.ten;
+
+                if (c.value == CardValue.ace)
+                    c.value = CardValue.jack;
+
                 Tb_Player4SumValue.Texts = Convert.ToString(int.Parse(Tb_Player4SumValue.Texts) + (int)c.value);
-                if (player4CardValues.Contains(11) && int.Parse(Tb_Player4SumValue.Texts) > 21)
+                if (player4CardValues.Contains((int)CardValue.ace) && int.Parse(Tb_Player4SumValue.Texts) > 21)
                 {
-                    player4CardValues.Remove(11);
+                    player4CardValues.Remove((int)CardValue.ace);
                     Tb_Player4SumValue.Texts = Convert.ToString(int.Parse(Tb_Player4SumValue.Texts) - 11);
                 }
             }
@@ -190,36 +211,29 @@ namespace Casino
             }
         }
 
-        public void Hit(PictureBox Pb_old)
+        private int x;
+        private int y;
+
+        public void Hit(PictureBox Pb_old,int x ,int y , int activePlayer)
         {
-            PictureBox pictureBox = new PictureBox
-            {
-                Name = "Pb_NewCard",
-                Size = new Size(55, 80),
-                Location = new Point(Pb_old.Location.X + 70, Pb_old.Location.Y) ,
-                Image = Image.FromFile("2_of_clubs.PNG"),
-
-            };
-
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.Name = "Pb_NewCard";
+            pictureBox.Size = Pb_old.Size;
+            pictureBox.Location = (Point)(x,y);
             pictureBox.Visible = true;
             pictureBox.Show();
             this.Controls.Add(pictureBox);
-
-            //pictureBox.Show();
-            //pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            //pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            //Controls.Add(pictureBox);
-            //c = deck.DrawCard();
-            //pictureBox.Image = GetCardPic(c.value, c.color);
-            //CalcSums(1);
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            Controls.SetChildIndex(pictureBox, 0);
+            Card c = deck.DrawCard();
+            pictureBox.Image = GetCardPic(c);
+            CalcSums(activePlayer, c);
             CheckStatus();
         }
 
-
-
         public void GiveCards()
         {
-            if (undealtPlayers.Count > 0)
+            if (undealtPlayers.Count == 1)
             {
                 Card c = deck.DrawCard();
 
@@ -231,7 +245,7 @@ namespace Casino
                 undealtPlayers.RemoveAt(0);
                 return;
             }
-            if (undealtPlayers.Count > 1)
+            if (undealtPlayers.Count == 2)
             {
                 Card c = deck.DrawCard();
 
@@ -243,7 +257,7 @@ namespace Casino
                 undealtPlayers.RemoveAt(1);
                 return;
             }
-            if (undealtPlayers.Count > 2)
+            if (undealtPlayers.Count == 3)
             {
                 Card c = deck.DrawCard();
 
@@ -255,7 +269,7 @@ namespace Casino
                 undealtPlayers.RemoveAt(2);
                 return;
             }
-            if (undealtPlayers.Count > 3)
+            if (undealtPlayers.Count == 4)
             {
                 Card c = deck.DrawCard();
 
@@ -343,13 +357,31 @@ namespace Casino
 
         private void Btn_Player1Hit_Click(object sender, EventArgs e)
         {
-            Hit(Pb_Player1RightCard);
+            x += Pb_Player1RightCard.Location.X;
+            y = Pb_Player1RightCard.Location.Y;
+
+            Hit(Pb_Player1RightCard, x, y, 1);
 
         }
 
         private void Btn_Player1Stand_Click(object sender, EventArgs e)
         {
             scene.StandScene(Btn_Player1Hit, Btn_Player1Stand);
+        }
+
+        private void Btn_Player2Hit_Click(object sender, EventArgs e)
+        {
+            Hit(Pb_Player2RightCard, 2);
+        }
+
+        private void Btn_Player3Hit_Click(object sender, EventArgs e)
+        {
+            Hit(Pb_Player3RightCard, 3);
+        }
+
+        private void Btn_Player4Hit_Click(object sender, EventArgs e)
+        {
+            Hit(Pb_Player4RightCard, 4);
         }
     }
 }

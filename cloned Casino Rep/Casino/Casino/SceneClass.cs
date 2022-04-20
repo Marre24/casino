@@ -10,7 +10,6 @@ namespace Casino
 {
     class SceneClass
     {
-        
         public void StartScene(Label Lbl_password, Label Lbl_username, Button Btn_Login, Button Btn_CreateLogin, CostomTextBox Tb_Password, CostomTextBox Tb_UserName)
         {
             Lbl_password.Text = "Enter your Password";
@@ -25,10 +24,7 @@ namespace Casino
 
         public void LobbyScene(PictureBox Pb_Background, string lobbyImage)
         {
-
             Pb_Background.Image = Image.FromFile(lobbyImage);
-
-
         }
 
         public void UsercreateScene(Label Lbl_password, Label Lbl_username, Button Btn_Return, Button Btn_NewLoginInformation, CostomTextBox Tb_Password, CostomTextBox Tb_UserName)
@@ -125,7 +121,6 @@ namespace Casino
         {
             Btn_PlayerHit.Hide();
             Btn_PlayerStand.Hide();
-
         }
 
         public void StandScene(Button Btn_PlayerHit, Button Btn_PlayerStand)
@@ -133,9 +128,5 @@ namespace Casino
             Btn_PlayerHit.Hide();
             Btn_PlayerStand.Hide();
         }
-
-
-
-
     }
 }
