@@ -67,6 +67,7 @@
     <Compile Include="CostomTextBox.Designer.cs">
       <DependentUpon>CostomTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hand.cs" />
     <Compile Include="Log_inForm.cs">
       <SubType>Form</SubType>
     </Compile>

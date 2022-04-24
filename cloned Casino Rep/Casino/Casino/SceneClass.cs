@@ -128,5 +128,28 @@ namespace Casino
             Btn_PlayerHit.Hide();
             Btn_PlayerStand.Hide();
         }
+
+        public void BettingScene(PictureBox Pb_ChipBlack,PictureBox Pb_ChipBlue, PictureBox Pb_ChipPink, PictureBox Pb_ChipRed, Button Btn_ClearBet, CostomTextBox Tb_100, CostomTextBox Tb_1000, CostomTextBox Tb_500 , CostomTextBox Tb_2000, CostomTextBox Tb_BetText, CostomTextBox Tb_Bet)
+        {
+            Pb_ChipPink.Show();
+            Pb_ChipBlack.Show();
+            Pb_ChipBlue.Show();
+            Pb_ChipRed.Show();
+            Btn_ClearBet.Show();
+            Tb_2000.Show();
+            Tb_500.Show();
+            Tb_1000.Show();
+            Tb_100.Show();
+            Tb_BetText.Show();
+            Tb_Bet.Show();
+        }
+
+        public void RoundEndScene()
+        {
+
+
+
+        }
+
     }
 }

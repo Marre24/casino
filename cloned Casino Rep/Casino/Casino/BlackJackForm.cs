@@ -18,13 +18,9 @@ namespace Casino
         SceneClass scene = new SceneClass();
         List<Player> undealtPlayers = new List<Player>();
         List<int> player1CardValues = new List<int>();
-        List<int> player2CardValues = new List<int>();
-        List<int> player3CardValues = new List<int>();
-        List<int> player4CardValues = new List<int>();
         public bool player1GetPrice = false;
-        public bool player2GetPrice = false;
-        public bool player3GetPrice = false;
-        public bool player4GetPrice = false;
+        List<Player> stoppedPlayers = new List<Player>();
+        Dictionary<Player, Hand> hands = new Dictionary<Player, Hand>();
 
         public BlackJackForm()
         {
@@ -33,7 +29,7 @@ namespace Casino
             scene.BlackJackScene(Btn_Player1Join, Btn_Player2Join, Btn_Player3Join, Btn_Player4Join, Btn_startRound);
             deck.CreateDecks(deckCount);
             deck.ShuffleDeck();
-
+            
         }
         public Image GetCardPic(Card c)
         {
@@ -53,7 +49,8 @@ namespace Casino
 
         private void Btn_startRound_Click(object sender, EventArgs e)
         {
-
+            HideAllComponents();
+            scene.ShowPlayerComponents(Btn_Player1Hit, Btn_Player1Join, Btn_Player1Stand, Tb_Player1Username);
             if (activePlayers.Count == 0)
             {
                 MessageBox.Show("you do not have any active players");
@@ -75,95 +72,36 @@ namespace Casino
             Btn_startRound.Hide();
         }
 
-        private void CalcSums(int activePlayer, Card c)
+        private void CalcSums(Player activePlayer, Card c)
         {
-            if (activePlayer == 1)
-            {
-                player1CardValues.Add((int)c.value);
+            Hand hand = hands[activePlayer];
 
-                if (c.value > CardValue.ten)
-                    c.value = CardValue.ten;
+            hand.AddCard(c);
 
-                if (c.value == CardValue.ace)
-                    c.value = CardValue.jack;
+            if (c.value > CardValue.ten)
+                c.value = CardValue.ten;
 
-                Tb_Player1SumValue.Texts = Convert.ToString(int.Parse(Tb_Player1SumValue.Texts) + (int)c.value);
-                if (player1CardValues.Contains((int)CardValue.ace) && int.Parse(Tb_Player1SumValue.Texts) > 21)
-                {
-                    player1CardValues.Remove((int)CardValue.ace);
-                    Tb_Player1SumValue.Texts = Convert.ToString(int.Parse(Tb_Player1SumValue.Texts) - 11);
-                }
-            }
-            if (activePlayer == 2)
-            {
-                player2CardValues.Add((int)c.value);
+            if (c.value == CardValue.ace)
+                c.value = CardValue.jack;
 
-                if (c.value > CardValue.ten)
-                    c.value = CardValue.ten;
+            Tb_Player1SumValue.Texts = hand.value();
+            
 
-                if (c.value == CardValue.ace)
-                    c.value = CardValue.jack;
-
-                Tb_Player2SumValue.Texts = Convert.ToString(int.Parse(Tb_Player2SumValue.Texts) + (int)c.value);
-                if (player2CardValues.Contains((int)CardValue.ace) && int.Parse(Tb_Player2SumValue.Texts) > 21)
-                {
-                    player2CardValues.Remove((int)CardValue.ace);
-                    Tb_Player2SumValue.Texts = Convert.ToString(int.Parse(Tb_Player2SumValue.Texts) - 11);
-                }
-            }
-            if (activePlayer == 3)
-            {
-                player3CardValues.Add((int)c.value);
-
-                if (c.value > CardValue.ten)
-                    c.value = CardValue.ten;
-
-                if (c.value == CardValue.ace)
-                    c.value = CardValue.jack;
-
-                Tb_Player3SumValue.Texts = Convert.ToString(int.Parse(Tb_Player3SumValue.Texts) + (int)c.value);
-                if (player3CardValues.Contains((int)CardValue.ace) && int.Parse(Tb_Player3SumValue.Texts) > 21)
-                {
-                    player3CardValues.Remove((int)CardValue.ace);
-                    Tb_Player3SumValue.Texts = Convert.ToString(int.Parse(Tb_Player3SumValue.Texts) - 11);
-                }
-            }
-            if (activePlayer == 4)
-            {
-                player4CardValues.Add((int)c.value);
-
-                if (c.value > CardValue.ten)
-                    c.value = CardValue.ten;
-
-                if (c.value == CardValue.ace)
-                    c.value = CardValue.jack;
-
-                Tb_Player4SumValue.Texts = Convert.ToString(int.Parse(Tb_Player4SumValue.Texts) + (int)c.value);
-                if (player4CardValues.Contains((int)CardValue.ace) && int.Parse(Tb_Player4SumValue.Texts) > 21)
-                {
-                    player4CardValues.Remove((int)CardValue.ace);
-                    Tb_Player4SumValue.Texts = Convert.ToString(int.Parse(Tb_Player4SumValue.Texts) - 11);
-                }
-            }
         }
 
-        public void CheckStatus()
+        public void CheckStatus(Player player)
         {
             if (int.Parse(Tb_Player1SumValue.Texts) > 21)
             {
                 scene.BustScene(Btn_Player1Hit, Btn_Player1Stand);
+                stoppedPlayers.Add(new Player());
             }
-            if (int.Parse(Tb_Player2SumValue.Texts) > 21)
+
+
+            if (stoppedPlayers.Count == activePlayers.Count)
             {
-                scene.BustScene(Btn_Player2Hit, Btn_Player2Stand);
-            }
-            if (int.Parse(Tb_Player3SumValue.Texts) > 21)
-            {
-                scene.BustScene(Btn_Player3Hit, Btn_Player3Stand);
-            }
-            if (int.Parse(Tb_Player4SumValue.Texts) > 21)
-            {
-                scene.BustScene(Btn_Player4Hit, Btn_Player4Stand);
+                scene.RoundEndScene();
+                GiveRewards();
             }
 
 
@@ -173,53 +111,33 @@ namespace Casino
                 player1GetPrice = true;
 
             }
-            if (int.Parse(Tb_Player2SumValue.Texts) == 21)
-            {
-                scene.StandScene(Btn_Player2Hit, Btn_Player2Stand);
-                player2GetPrice = true;
-
-            }
-            if (int.Parse(Tb_Player3SumValue.Texts) == 21)
-            {
-                scene.StandScene(Btn_Player3Hit, Btn_Player3Stand);
-                player3GetPrice = true;
-
-            }
-            if (int.Parse(Tb_Player4SumValue.Texts) == 21)
-            {
-                scene.StandScene(Btn_Player4Hit, Btn_Player4Stand);
-                player4GetPrice = true;
-
-            }
-
-
-            if (player1CardValues.Count != player1CardValues.Distinct().Count())
+            if (hands[player].CanSplit())
             {
                 Btn_Player1Split.Show();
             }
-            if (player2CardValues.Count != player2CardValues.Distinct().Count())
+        }
+
+        private void GiveRewards()
+        {
+            if (player1GetPrice)
             {
-                Btn_Player2Split.Show();
+                //Balance += betsum *2
             }
-            if (player3CardValues.Count != player3CardValues.Distinct().Count())
-            {
-                Btn_Player3Split.Show();
-            }
-            if (player4CardValues.Count != player4CardValues.Distinct().Count())
-            {
-                Btn_Player4Split.Show();
-            }
+
+
+
         }
 
         private int x;
         private int y;
 
-        public void Hit(PictureBox Pb_old,int x ,int y , int activePlayer)
+        public void Hit(PictureBox Pb_old,int oldX ,int oldY , Player activePlayer)
         {
             PictureBox pictureBox = new PictureBox();
             pictureBox.Name = "Pb_NewCard";
             pictureBox.Size = Pb_old.Size;
-            pictureBox.Location = (Point)(x,y);
+            Point point = new Point(oldX + pictureBox.Size.Width + 30, oldY);
+            pictureBox.Location = point;
             pictureBox.Visible = true;
             pictureBox.Show();
             this.Controls.Add(pictureBox);
@@ -233,55 +151,22 @@ namespace Casino
 
         public void GiveCards()
         {
-            if (undealtPlayers.Count == 1)
+            foreach (Player player in activePlayers)
             {
                 Card c = deck.DrawCard();
+
+                //DealTo(c, player);
+
+
 
                 Pb_Player1LeftCard.Image = GetCardPic(c);
-                CalcSums(1, c);
+                CalcSums(player, c);
                 c = deck.DrawCard();
                 Pb_Player1RightCard.Image = GetCardPic(c);
-                CalcSums(1, c);
+                CalcSums(player, c);
                 undealtPlayers.RemoveAt(0);
-                return;
+                CheckStatus(player);
             }
-            if (undealtPlayers.Count == 2)
-            {
-                Card c = deck.DrawCard();
-
-                Pb_Player2LeftCard.Image = GetCardPic(c);
-                CalcSums(2, c);
-                c = deck.DrawCard();
-                Pb_Player2RightCard.Image = GetCardPic(c);
-                CalcSums(2, c);
-                undealtPlayers.RemoveAt(1);
-                return;
-            }
-            if (undealtPlayers.Count == 3)
-            {
-                Card c = deck.DrawCard();
-
-                Pb_Player3LeftCard.Image = GetCardPic(c);
-                CalcSums(3, c);
-                c = deck.DrawCard();
-                Pb_Player3RightCard.Image = GetCardPic(c);
-                CalcSums(3, c);
-                undealtPlayers.RemoveAt(2);
-                return;
-            }
-            if (undealtPlayers.Count == 4)
-            {
-                Card c = deck.DrawCard();
-
-                Pb_Player4LeftCard.Image = GetCardPic(c);
-                CalcSums(4, c);
-                c = deck.DrawCard();
-                Pb_Player4RightCard.Image = GetCardPic(c);
-                CalcSums(4, c);
-                undealtPlayers.RemoveAt(3);
-                return;
-            }
-            CheckStatus();
         }
 
         private Size oldSize;
@@ -331,7 +216,8 @@ namespace Casino
 
         private void Btn_Player1Join_Click(object sender, EventArgs e)
         {
-            scene.ShowPlayerComponents(Btn_Player1Hit, Btn_Player1Join, Btn_Player1Stand, Tb_Player1Username);
+            scene.BettingScene(Pb_ChipBlack, Pb_ChipBlue, Pb_ChipPink, Pb_ChipRed, Btn_ClearBet, Tb_100, Tb_1000, Tb_500 , Tb_2000, Tb_BetText, Tb_Bet);
+            
             activePlayers.Add(new Player());
 
         }
@@ -357,31 +243,58 @@ namespace Casino
 
         private void Btn_Player1Hit_Click(object sender, EventArgs e)
         {
-            x += Pb_Player1RightCard.Location.X;
+            if (x == Pb_Player1RightCard.Location.X)
+            {
+                x += Pb_Player1RightCard.Size.Width + 30;
+                Hit(Pb_Player1RightCard,x , y, activePlayers[0]);
+                return;
+            }
+            x = Pb_Player1RightCard.Location.X;
             y = Pb_Player1RightCard.Location.Y;
-
-            Hit(Pb_Player1RightCard, x, y, 1);
+            Hit(Pb_Player1RightCard, x, y, activePlayers[0]);
 
         }
 
         private void Btn_Player1Stand_Click(object sender, EventArgs e)
         {
             scene.StandScene(Btn_Player1Hit, Btn_Player1Stand);
+            stoppedPlayers.Add(new Player());
+            CheckStatus();
         }
 
         private void Btn_Player2Hit_Click(object sender, EventArgs e)
         {
-            Hit(Pb_Player2RightCard, 2);
+            //Hit(Pb_Player2RightCard, 2);
         }
 
         private void Btn_Player3Hit_Click(object sender, EventArgs e)
         {
-            Hit(Pb_Player3RightCard, 3);
+           // Hit(Pb_Player3RightCard, 3);
         }
 
         private void Btn_Player4Hit_Click(object sender, EventArgs e)
         {
-            Hit(Pb_Player4RightCard, 4);
+            //Hit(Pb_Player4RightCard, 4);
+        }
+
+        private void Pb_ChipPink_Click(object sender, EventArgs e)
+        {
+            Tb_Bet.Texts = (int.Parse(Tb_Bet.Texts) + 2000).ToString();
+        }
+
+        private void Pb_ChipBlack_Click(object sender, EventArgs e)
+        {
+            Tb_Bet.Texts = (int.Parse(Tb_Bet.Texts) + 1000).ToString();
+        }
+
+        private void Pb_ChipBlue_Click(object sender, EventArgs e)
+        {
+            Tb_Bet.Texts = (int.Parse(Tb_Bet.Texts) + 500).ToString();
+        }
+
+        private void Pb_ChipRed_Click(object sender, EventArgs e)
+        {
+            Tb_Bet.Texts = (int.Parse(Tb_Bet.Texts) + 100).ToString();
         }
     }
 }

@@ -66,6 +66,17 @@
             this.Btn_Player2Hit = new Casino.CostomButtons();
             this.Btn_exit = new Casino.CostomButtons();
             this.Btn_startRound = new Casino.CostomButtons();
+            this.Pb_ChipPink = new System.Windows.Forms.PictureBox();
+            this.Pb_ChipBlack = new System.Windows.Forms.PictureBox();
+            this.Pb_ChipBlue = new System.Windows.Forms.PictureBox();
+            this.Pb_ChipRed = new System.Windows.Forms.PictureBox();
+            this.Tb_Bet = new Casino.CostomTextBox();
+            this.Btn_ClearBet = new Casino.CostomButtons();
+            this.Tb_BetText = new Casino.CostomTextBox();
+            this.Tb_2000 = new Casino.CostomTextBox();
+            this.Tb_1000 = new Casino.CostomTextBox();
+            this.Tb_500 = new Casino.CostomTextBox();
+            this.Tb_100 = new Casino.CostomTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_EmpyTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_DealerLeftCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_DealerRightCard)).BeginInit();
@@ -77,6 +88,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pb_Player4LeftCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_Player3RightCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_Player3LeftCard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pb_ChipPink)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pb_ChipBlack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pb_ChipBlue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pb_ChipRed)).BeginInit();
             this.SuspendLayout();
             // 
             // Pb_EmpyTable
@@ -112,7 +127,7 @@
             // 
             // Pb_Player2LeftCard
             // 
-            this.Pb_Player2LeftCard.Location = new System.Drawing.Point(526, 426);
+            this.Pb_Player2LeftCard.Location = new System.Drawing.Point(492, 426);
             this.Pb_Player2LeftCard.Name = "Pb_Player2LeftCard";
             this.Pb_Player2LeftCard.Size = new System.Drawing.Size(55, 80);
             this.Pb_Player2LeftCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -121,7 +136,7 @@
             // 
             // Pb_Player2RightCard
             // 
-            this.Pb_Player2RightCard.Location = new System.Drawing.Point(609, 426);
+            this.Pb_Player2RightCard.Location = new System.Drawing.Point(575, 426);
             this.Pb_Player2RightCard.Name = "Pb_Player2RightCard";
             this.Pb_Player2RightCard.Size = new System.Drawing.Size(55, 80);
             this.Pb_Player2RightCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -130,7 +145,7 @@
             // 
             // Pb_Player1RightCard
             // 
-            this.Pb_Player1RightCard.Location = new System.Drawing.Point(280, 426);
+            this.Pb_Player1RightCard.Location = new System.Drawing.Point(248, 426);
             this.Pb_Player1RightCard.Name = "Pb_Player1RightCard";
             this.Pb_Player1RightCard.Size = new System.Drawing.Size(55, 80);
             this.Pb_Player1RightCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -139,7 +154,7 @@
             // 
             // Pb_Player1LeftCard
             // 
-            this.Pb_Player1LeftCard.Location = new System.Drawing.Point(200, 426);
+            this.Pb_Player1LeftCard.Location = new System.Drawing.Point(168, 426);
             this.Pb_Player1LeftCard.Name = "Pb_Player1LeftCard";
             this.Pb_Player1LeftCard.Size = new System.Drawing.Size(55, 80);
             this.Pb_Player1LeftCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -148,7 +163,7 @@
             // 
             // Pb_Player4RightCard
             // 
-            this.Pb_Player4RightCard.Location = new System.Drawing.Point(1195, 426);
+            this.Pb_Player4RightCard.Location = new System.Drawing.Point(1161, 426);
             this.Pb_Player4RightCard.Name = "Pb_Player4RightCard";
             this.Pb_Player4RightCard.Size = new System.Drawing.Size(55, 80);
             this.Pb_Player4RightCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -157,7 +172,7 @@
             // 
             // Pb_Player4LeftCard
             // 
-            this.Pb_Player4LeftCard.Location = new System.Drawing.Point(1112, 426);
+            this.Pb_Player4LeftCard.Location = new System.Drawing.Point(1078, 426);
             this.Pb_Player4LeftCard.Name = "Pb_Player4LeftCard";
             this.Pb_Player4LeftCard.Size = new System.Drawing.Size(55, 80);
             this.Pb_Player4LeftCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -166,7 +181,7 @@
             // 
             // Pb_Player3RightCard
             // 
-            this.Pb_Player3RightCard.Location = new System.Drawing.Point(906, 426);
+            this.Pb_Player3RightCard.Location = new System.Drawing.Point(872, 426);
             this.Pb_Player3RightCard.Name = "Pb_Player3RightCard";
             this.Pb_Player3RightCard.Size = new System.Drawing.Size(55, 80);
             this.Pb_Player3RightCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -175,7 +190,7 @@
             // 
             // Pb_Player3LeftCard
             // 
-            this.Pb_Player3LeftCard.Location = new System.Drawing.Point(823, 426);
+            this.Pb_Player3LeftCard.Location = new System.Drawing.Point(789, 426);
             this.Pb_Player3LeftCard.Name = "Pb_Player3LeftCard";
             this.Pb_Player3LeftCard.Size = new System.Drawing.Size(55, 80);
             this.Pb_Player3LeftCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -703,11 +718,203 @@
             this.Btn_startRound.UseVisualStyleBackColor = false;
             this.Btn_startRound.Click += new System.EventHandler(this.Btn_startRound_Click);
             // 
+            // Pb_ChipPink
+            // 
+            this.Pb_ChipPink.Image = ((System.Drawing.Image)(resources.GetObject("Pb_ChipPink.Image")));
+            this.Pb_ChipPink.InitialImage = ((System.Drawing.Image)(resources.GetObject("Pb_ChipPink.InitialImage")));
+            this.Pb_ChipPink.Location = new System.Drawing.Point(145, 426);
+            this.Pb_ChipPink.Name = "Pb_ChipPink";
+            this.Pb_ChipPink.Size = new System.Drawing.Size(60, 50);
+            this.Pb_ChipPink.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Pb_ChipPink.TabIndex = 37;
+            this.Pb_ChipPink.TabStop = false;
+            this.Pb_ChipPink.Click += new System.EventHandler(this.Pb_ChipPink_Click);
+            // 
+            // Pb_ChipBlack
+            // 
+            this.Pb_ChipBlack.Image = ((System.Drawing.Image)(resources.GetObject("Pb_ChipBlack.Image")));
+            this.Pb_ChipBlack.InitialImage = ((System.Drawing.Image)(resources.GetObject("Pb_ChipBlack.InitialImage")));
+            this.Pb_ChipBlack.Location = new System.Drawing.Point(211, 426);
+            this.Pb_ChipBlack.Name = "Pb_ChipBlack";
+            this.Pb_ChipBlack.Size = new System.Drawing.Size(60, 50);
+            this.Pb_ChipBlack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Pb_ChipBlack.TabIndex = 38;
+            this.Pb_ChipBlack.TabStop = false;
+            this.Pb_ChipBlack.Click += new System.EventHandler(this.Pb_ChipBlack_Click);
+            // 
+            // Pb_ChipBlue
+            // 
+            this.Pb_ChipBlue.Image = ((System.Drawing.Image)(resources.GetObject("Pb_ChipBlue.Image")));
+            this.Pb_ChipBlue.InitialImage = ((System.Drawing.Image)(resources.GetObject("Pb_ChipBlue.InitialImage")));
+            this.Pb_ChipBlue.Location = new System.Drawing.Point(277, 426);
+            this.Pb_ChipBlue.Name = "Pb_ChipBlue";
+            this.Pb_ChipBlue.Size = new System.Drawing.Size(60, 50);
+            this.Pb_ChipBlue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Pb_ChipBlue.TabIndex = 39;
+            this.Pb_ChipBlue.TabStop = false;
+            this.Pb_ChipBlue.Click += new System.EventHandler(this.Pb_ChipBlue_Click);
+            // 
+            // Pb_ChipRed
+            // 
+            this.Pb_ChipRed.Image = ((System.Drawing.Image)(resources.GetObject("Pb_ChipRed.Image")));
+            this.Pb_ChipRed.InitialImage = ((System.Drawing.Image)(resources.GetObject("Pb_ChipRed.InitialImage")));
+            this.Pb_ChipRed.Location = new System.Drawing.Point(343, 426);
+            this.Pb_ChipRed.Name = "Pb_ChipRed";
+            this.Pb_ChipRed.Size = new System.Drawing.Size(60, 50);
+            this.Pb_ChipRed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Pb_ChipRed.TabIndex = 40;
+            this.Pb_ChipRed.TabStop = false;
+            this.Pb_ChipRed.Click += new System.EventHandler(this.Pb_ChipRed_Click);
+            // 
+            // Tb_Bet
+            // 
+            this.Tb_Bet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(92)))), ((int)(((byte)(30)))));
+            this.Tb_Bet.BorderColor = System.Drawing.Color.Chocolate;
+            this.Tb_Bet.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.Tb_Bet.BorderSize = 2;
+            this.Tb_Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tb_Bet.ForeColor = System.Drawing.Color.White;
+            this.Tb_Bet.Location = new System.Drawing.Point(211, 382);
+            this.Tb_Bet.Margin = new System.Windows.Forms.Padding(4);
+            this.Tb_Bet.Multiline = false;
+            this.Tb_Bet.Name = "Tb_Bet";
+            this.Tb_Bet.Padding = new System.Windows.Forms.Padding(7);
+            this.Tb_Bet.PasswordChar = false;
+            this.Tb_Bet.Size = new System.Drawing.Size(126, 37);
+            this.Tb_Bet.TabIndex = 41;
+            this.Tb_Bet.Texts = "0";
+            this.Tb_Bet.UnderlinedStyle = true;
+            // 
+            // Btn_ClearBet
+            // 
+            this.Btn_ClearBet.BackColor = System.Drawing.Color.Turquoise;
+            this.Btn_ClearBet.BackgroundColor = System.Drawing.Color.Turquoise;
+            this.Btn_ClearBet.BorderColor = System.Drawing.Color.Turquoise;
+            this.Btn_ClearBet.BorderRadius = 30;
+            this.Btn_ClearBet.BorderSize = 5;
+            this.Btn_ClearBet.FlatAppearance.BorderSize = 0;
+            this.Btn_ClearBet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_ClearBet.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_ClearBet.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.Btn_ClearBet.Location = new System.Drawing.Point(343, 388);
+            this.Btn_ClearBet.Name = "Btn_ClearBet";
+            this.Btn_ClearBet.Size = new System.Drawing.Size(77, 34);
+            this.Btn_ClearBet.TabIndex = 42;
+            this.Btn_ClearBet.Text = "Clear";
+            this.Btn_ClearBet.TextColor = System.Drawing.SystemColors.MenuText;
+            this.Btn_ClearBet.UseVisualStyleBackColor = false;
+            // 
+            // Tb_BetText
+            // 
+            this.Tb_BetText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(92)))), ((int)(((byte)(30)))));
+            this.Tb_BetText.BorderColor = System.Drawing.Color.Chocolate;
+            this.Tb_BetText.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.Tb_BetText.BorderSize = 2;
+            this.Tb_BetText.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tb_BetText.ForeColor = System.Drawing.Color.White;
+            this.Tb_BetText.Location = new System.Drawing.Point(168, 382);
+            this.Tb_BetText.Margin = new System.Windows.Forms.Padding(4);
+            this.Tb_BetText.Multiline = false;
+            this.Tb_BetText.Name = "Tb_BetText";
+            this.Tb_BetText.Padding = new System.Windows.Forms.Padding(7);
+            this.Tb_BetText.PasswordChar = false;
+            this.Tb_BetText.Size = new System.Drawing.Size(47, 37);
+            this.Tb_BetText.TabIndex = 43;
+            this.Tb_BetText.Texts = "Bet:";
+            this.Tb_BetText.UnderlinedStyle = true;
+            // 
+            // Tb_2000
+            // 
+            this.Tb_2000.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(92)))), ((int)(((byte)(30)))));
+            this.Tb_2000.BorderColor = System.Drawing.Color.Chocolate;
+            this.Tb_2000.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.Tb_2000.BorderSize = 2;
+            this.Tb_2000.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tb_2000.ForeColor = System.Drawing.Color.White;
+            this.Tb_2000.Location = new System.Drawing.Point(145, 483);
+            this.Tb_2000.Margin = new System.Windows.Forms.Padding(4);
+            this.Tb_2000.Multiline = false;
+            this.Tb_2000.Name = "Tb_2000";
+            this.Tb_2000.Padding = new System.Windows.Forms.Padding(7);
+            this.Tb_2000.PasswordChar = false;
+            this.Tb_2000.Size = new System.Drawing.Size(58, 37);
+            this.Tb_2000.TabIndex = 44;
+            this.Tb_2000.Texts = "2000";
+            this.Tb_2000.UnderlinedStyle = true;
+            // 
+            // Tb_1000
+            // 
+            this.Tb_1000.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(92)))), ((int)(((byte)(30)))));
+            this.Tb_1000.BorderColor = System.Drawing.Color.Chocolate;
+            this.Tb_1000.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.Tb_1000.BorderSize = 2;
+            this.Tb_1000.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tb_1000.ForeColor = System.Drawing.Color.White;
+            this.Tb_1000.Location = new System.Drawing.Point(211, 483);
+            this.Tb_1000.Margin = new System.Windows.Forms.Padding(4);
+            this.Tb_1000.Multiline = false;
+            this.Tb_1000.Name = "Tb_1000";
+            this.Tb_1000.Padding = new System.Windows.Forms.Padding(7);
+            this.Tb_1000.PasswordChar = false;
+            this.Tb_1000.Size = new System.Drawing.Size(58, 37);
+            this.Tb_1000.TabIndex = 45;
+            this.Tb_1000.Texts = "1000";
+            this.Tb_1000.UnderlinedStyle = true;
+            // 
+            // Tb_500
+            // 
+            this.Tb_500.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(92)))), ((int)(((byte)(30)))));
+            this.Tb_500.BorderColor = System.Drawing.Color.Chocolate;
+            this.Tb_500.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.Tb_500.BorderSize = 2;
+            this.Tb_500.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tb_500.ForeColor = System.Drawing.Color.White;
+            this.Tb_500.Location = new System.Drawing.Point(277, 483);
+            this.Tb_500.Margin = new System.Windows.Forms.Padding(4);
+            this.Tb_500.Multiline = false;
+            this.Tb_500.Name = "Tb_500";
+            this.Tb_500.Padding = new System.Windows.Forms.Padding(7);
+            this.Tb_500.PasswordChar = false;
+            this.Tb_500.Size = new System.Drawing.Size(60, 37);
+            this.Tb_500.TabIndex = 46;
+            this.Tb_500.Texts = "500";
+            this.Tb_500.UnderlinedStyle = true;
+            // 
+            // Tb_100
+            // 
+            this.Tb_100.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(92)))), ((int)(((byte)(30)))));
+            this.Tb_100.BorderColor = System.Drawing.Color.Chocolate;
+            this.Tb_100.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.Tb_100.BorderSize = 2;
+            this.Tb_100.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tb_100.ForeColor = System.Drawing.Color.White;
+            this.Tb_100.Location = new System.Drawing.Point(345, 483);
+            this.Tb_100.Margin = new System.Windows.Forms.Padding(4);
+            this.Tb_100.Multiline = false;
+            this.Tb_100.Name = "Tb_100";
+            this.Tb_100.Padding = new System.Windows.Forms.Padding(7);
+            this.Tb_100.PasswordChar = false;
+            this.Tb_100.Size = new System.Drawing.Size(58, 37);
+            this.Tb_100.TabIndex = 47;
+            this.Tb_100.Texts = "100";
+            this.Tb_100.UnderlinedStyle = true;
+            // 
             // BlackJackForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 711);
+            this.Controls.Add(this.Tb_100);
+            this.Controls.Add(this.Tb_500);
+            this.Controls.Add(this.Tb_1000);
+            this.Controls.Add(this.Tb_2000);
+            this.Controls.Add(this.Tb_BetText);
+            this.Controls.Add(this.Btn_ClearBet);
+            this.Controls.Add(this.Tb_Bet);
+            this.Controls.Add(this.Pb_ChipRed);
+            this.Controls.Add(this.Pb_ChipBlue);
+            this.Controls.Add(this.Pb_ChipBlack);
+            this.Controls.Add(this.Pb_ChipPink);
             this.Controls.Add(this.Tb_Player3SumValue);
             this.Controls.Add(this.Tb_Player4SumValue);
             this.Controls.Add(this.Tb_Player1SumValue);
@@ -759,6 +966,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pb_Player4LeftCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_Player3RightCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_Player3LeftCard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pb_ChipPink)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pb_ChipBlack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pb_ChipBlue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pb_ChipRed)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -802,5 +1013,16 @@
         private CostomTextBox Tb_Player4SumValue;
         private CostomTextBox Tb_Player1SumValue;
         private CostomTextBox Tb_Player2SumValue;
+        private System.Windows.Forms.PictureBox Pb_ChipPink;
+        private System.Windows.Forms.PictureBox Pb_ChipBlack;
+        private System.Windows.Forms.PictureBox Pb_ChipBlue;
+        private System.Windows.Forms.PictureBox Pb_ChipRed;
+        private CostomTextBox Tb_Bet;
+        private CostomButtons Btn_ClearBet;
+        private CostomTextBox Tb_BetText;
+        private CostomTextBox Tb_2000;
+        private CostomTextBox Tb_1000;
+        private CostomTextBox Tb_500;
+        private CostomTextBox Tb_100;
     }
 }
