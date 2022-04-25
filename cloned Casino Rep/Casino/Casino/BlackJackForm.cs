@@ -84,7 +84,7 @@ namespace Casino
             if (c.value == CardValue.ace)
                 c.value = CardValue.jack;
 
-            Tb_Player1SumValue.Texts = hand.value();
+            //Tb_Player1SumValue.Texts = hand.value();
             
 
         }
@@ -146,7 +146,7 @@ namespace Casino
             Card c = deck.DrawCard();
             pictureBox.Image = GetCardPic(c);
             CalcSums(activePlayer, c);
-            CheckStatus();
+            CheckStatus(new Player());
         }
 
         public void GiveCards()
@@ -259,7 +259,7 @@ namespace Casino
         {
             scene.StandScene(Btn_Player1Hit, Btn_Player1Stand);
             stoppedPlayers.Add(new Player());
-            CheckStatus();
+            CheckStatus(new Player());
         }
 
         private void Btn_Player2Hit_Click(object sender, EventArgs e)

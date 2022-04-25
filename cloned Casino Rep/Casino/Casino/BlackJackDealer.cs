@@ -8,7 +8,10 @@ namespace Casino
 {
     class BlackJackDealer
     {
+        public void SetOwnCards()
+        {
 
+        }
 
 
 

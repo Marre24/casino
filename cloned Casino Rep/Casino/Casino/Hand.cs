@@ -11,11 +11,11 @@ namespace Casino
         List<Card> cards = new List<Card>(); 
 
 
-        internal string value()
-        {
-            cards.Select(c => c.value.FaceValue()).Aggregate();
-            return "21";
-        }
+        //internal int value()
+        //{
+        //    cards.Select(c => c.FaceValue(c.value));
+        //    return cards[0];
+        //}
 
 
 

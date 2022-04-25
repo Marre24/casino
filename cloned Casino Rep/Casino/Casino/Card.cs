@@ -16,6 +16,26 @@ namespace Casino
             this.value = value;
         }
 
+        public int FaceValue(CardValue value)
+        {
+            int faceValue;
+            if (value == CardValue.ace)
+            {
+                faceValue = (int)CardValue.jack;
+                return faceValue;
+            }
+
+            if (value > CardValue.ten)
+            {
+                faceValue = (int)CardValue.ten;
+                return faceValue;
+            }
+
+            faceValue = (int)value;
+
+            return faceValue;
+        }
+
         public override string ToString()
         {
             return $"{color.ToString()} {value.ToString()}";
