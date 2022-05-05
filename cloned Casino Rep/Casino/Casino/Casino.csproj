@@ -82,6 +82,7 @@
     <Compile Include="CostomButtons.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="State.cs" />
     <EmbeddedResource Include="BlackJackForm.resx">
       <DependentUpon>BlackJackForm.cs</DependentUpon>
     </EmbeddedResource>

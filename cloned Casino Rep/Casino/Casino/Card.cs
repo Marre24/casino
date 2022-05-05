@@ -18,7 +18,7 @@ namespace Casino
 
         public override string ToString()
         {
-            return $"{color.ToString()} {value.ToString()}";
+            return $"{color} {value}";
         }
 
         public int FaceValue(CardValue value)

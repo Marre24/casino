@@ -4,19 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using PlayerId = System.Int32;
+
+
 namespace Casino
 {
-    internal class Player
+     internal class Player
     {
-        public int Id = 1;
-        public Hand hand;
-        
+        public int PlayerId = 1;
+        public Hand hand = new Hand();
+        public State state = new State(StateType.Spectating);
+
         private static int _nextId = 1;
         
         public Player()
         {
-            Id = _nextId++;
+            PlayerId = _nextId++;
+
         }
+
+
+
 
     }
 }

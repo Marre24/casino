@@ -11,21 +11,19 @@ using System.Windows.Forms;
 using PlayerId = System.Int32;
 
 
+
 namespace Casino
 {
     
     public partial class BlackJackForm : Form
     {
-        List<Player> activePlayers = new List<Player>();
+        readonly List<Player> activePlayers = new List<Player>();
         private readonly int deckCount = 6;
-        Deck deck = new Deck();
-        SceneClass scene = new SceneClass();
-        List<Player> undealtPlayers = new List<Player>();
+        readonly Deck deck = new Deck();
+        readonly SceneClass scene = new SceneClass();
         public bool player1GetPrice = false;
-        List<Player> stoppedPlayers = new List<Player>();
-        Dictionary<Player, Hand> hands = new Dictionary<Player, Hand>();
-
-        Player player = new Player();
+        readonly Dictionary<Player, Hand> hands = new Dictionary<Player, Hand>();
+        readonly BlackJackDealer dealer = new BlackJackDealer();
 
         public BlackJackForm()
         {
@@ -34,13 +32,6 @@ namespace Casino
             scene.BlackJackScene(Btn_Player1Join, Btn_Player2Join, Btn_Player3Join, Btn_Player4Join, Btn_startRound);
             deck.CreateDecks(deckCount);
             deck.ShuffleDeck();
-
-            
-            Card c = deck.DrawCard();
-            player.hand.AddCard(c);
-
-            MessageBox.Show(c.ToString());
-
         }
         public Image GetCardPic(Card c)
         {
@@ -68,40 +59,34 @@ namespace Casino
                 return;
             }
             scene.RoundScene(activePlayers, Pb_DealerLeftCard, Pb_DealerRightCard, Pb_Player1LeftCard, Pb_Player1RightCard, Pb_Player2LeftCard, Pb_Player2RightCard, Pb_Player3LeftCard, Pb_Player3RightCard, Pb_Player4LeftCard, Pb_Player4RightCard, Tb_Player1SumValue, Tb_Player2SumValue, Tb_Player3SumValue, Tb_Player4SumValue);
-            undealtPlayers = activePlayers;
 
-  
 
-            while (undealtPlayers.Count > 0)
+
+            foreach (Player p in activePlayers)
             {
-                GiveCards();
-
+                if (p.state == new State(StateType.undelt))
+                {
+                    dealer.GiveCards(deck, p.hand.leftCard, p.hand.rightCard, p);
+                    CalcSums(p);
+                    CheckStatus(p);
+                }
             }
             Btn_startRound.Hide();
         }
 
-        private void CalcSums(Player activePlayer, Card c)
+        private void CalcSums(Player activePlayer)
         {
             Tb_Player1SumValue.Texts = hands[activePlayer].Value().ToString();
         }
 
-        public void CheckStatus(Player player)
+        private void CheckStatus(Player player)
         {
-            if (int.Parse(Tb_Player1SumValue.Texts) > 21)
+            if (player.hand.Value() > 21)
             {
                 scene.BustScene(Btn_Player1Hit, Btn_Player1Stand);
-                stoppedPlayers.Add(new Player());
             }
 
-
-            if (stoppedPlayers.Count == activePlayers.Count)
-            {
-                scene.RoundEndScene();
-                GiveRewards();
-            }
-
-
-            if (int.Parse(Tb_Player1SumValue.Texts) == 21)
+            if (player.hand.Value() == 21)
             {
                 scene.StandScene(Btn_Player1Hit, Btn_Player1Stand);
                 player1GetPrice = true;
@@ -111,27 +96,30 @@ namespace Casino
             {
                 Btn_Player1Split.Show();
             }
-        }
 
-        private void GiveRewards()
-        {
-            if (player1GetPrice)
+            int counter = 0;
+
+            foreach (Player p in activePlayers)
             {
-                //Balance += betsum *2
+                if (p.state == new State(StateType.Busted) || new State(StateType.Stopped) == p.state)
+                {
+                    counter++;
+                    if (activePlayers.Count == counter)
+                        scene.RoundEndScene();
+                }
             }
-
-
-
         }
 
         private int x;
         private int y;
 
-        public void Hit(PictureBox Pb_old,int oldX ,int oldY , Player activePlayer)
+        private void Hit(PictureBox Pb_old,int oldX ,int oldY , Player activePlayer)
         {
-            PictureBox pictureBox = new PictureBox();
-            pictureBox.Name = "Pb_NewCard";
-            pictureBox.Size = Pb_old.Size;
+            PictureBox pictureBox = new PictureBox
+            {
+                Name = "Pb_NewCard",
+                Size = Pb_old.Size
+            };
             Point point = new Point(oldX + pictureBox.Size.Width + 30, oldY);
             pictureBox.Location = point;
             pictureBox.Visible = true;
@@ -139,29 +127,15 @@ namespace Casino
             this.Controls.Add(pictureBox);
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             Controls.SetChildIndex(pictureBox, 0);
-            Card c = deck.DrawCard(hands, activePlayer);
+
+            Card c = deck.DrawCard();
+            activePlayer.hand.AddCard(c);
             pictureBox.Image = GetCardPic(c);
-            CalcSums(activePlayer, c);
-            CheckStatus(new Player());
+            CalcSums(activePlayer);
+            CheckStatus(activePlayer);
         }
 
-        public void GiveCards()
-        {
-            foreach (Player player in activePlayers)
-            {
-                Card c = deck.DrawCard(hands, player);
-                //DealTo(c, player);
-
-                Pb_Player1LeftCard.Image = GetCardPic(c);
-                CalcSums(player, c);
-                c = deck.DrawCard(hands, player);
-                Pb_Player1RightCard.Image = GetCardPic(c);
-                CalcSums(player, c);
-                undealtPlayers.RemoveAt(0);
-
-                CheckStatus(player);
-            }
-        }
+        
 
         private Size oldSize;
         private void Log_inForm_Load(object sender, EventArgs e) => oldSize = base.Size;
@@ -211,28 +185,30 @@ namespace Casino
         private void Btn_Player1Join_Click(object sender, EventArgs e)
         {
             scene.BettingScene(Pb_ChipBlack, Pb_ChipBlue, Pb_ChipPink, Pb_ChipRed, Btn_ClearBet, Tb_100, Tb_1000, Tb_500 , Tb_2000, Tb_BetText, Tb_Bet);
-            
-            activePlayers.Add(new Player());
-
+            Player player = new Player();
+            activePlayers.Add(player);
+            player.hand.leftCard = Pb_Player1LeftCard;
+            player.hand.rightCard = Pb_Player1RightCard;
+            player.state = new State(StateType.undelt);
         }
 
         private void Btn_Player2Join_Click(object sender, EventArgs e)
         {
-            scene.ShowPlayerComponents(Btn_Player2Hit, Btn_Player2Join, Btn_Player2Stand, Tb_Player2Username);
-            activePlayers.Add(new Player());
+            //scene.ShowPlayerComponents(Btn_Player2Hit, Btn_Player2Join, Btn_Player2Stand, Tb_Player2Username);
+            //activePlayers.Add(new Player());
         }
 
         private void Btn_Player3Join_Click(object sender, EventArgs e)
         {
-            scene.ShowPlayerComponents(Btn_Player3Hit, Btn_Player3Join, Btn_Player3Stand, Tb_Player3Username);
-            activePlayers.Add(new Player());
+            //scene.ShowPlayerComponents(Btn_Player3Hit, Btn_Player3Join, Btn_Player3Stand, Tb_Player3Username);
+            //activePlayers.Add(new Player());
 
         }
 
         private void Btn_Player4Join_Click(object sender, EventArgs e)
         {
-            scene.ShowPlayerComponents(Btn_Player4Hit, Btn_Player4Join, Btn_Player4Stand, Tb_Player4Username);
-            activePlayers.Add(new Player());
+            //scene.ShowPlayerComponents(Btn_Player4Hit, Btn_Player4Join, Btn_Player4Stand, Tb_Player4Username);
+            
         }
 
         private void Btn_Player1Hit_Click(object sender, EventArgs e)
@@ -252,7 +228,6 @@ namespace Casino
         private void Btn_Player1Stand_Click(object sender, EventArgs e)
         {
             scene.StandScene(Btn_Player1Hit, Btn_Player1Stand);
-            stoppedPlayers.Add(new Player());
             CheckStatus(new Player());
         }
 

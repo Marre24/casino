@@ -10,15 +10,25 @@ namespace Casino
 {
     class BlackJackDealer
     {
-        Dictionary<Player, Hand> hands = new Dictionary<Player, Hand>();
-        Player dealer = new Player();
         public void TakeCards(Deck deck, PictureBox Pb_DealerLeftCard, PictureBox Pb_DealerRightCard)
         {
-            Card c = deck.DrawCard(hands, dealer);
+            Card c = deck.DrawCard();
             Pb_DealerLeftCard.Image = GetCardPic(c);
-            c = deck.DrawCard(hands, dealer);
+            c = deck.DrawCard();
             Pb_DealerRightCard.Image = GetCardPic(c);
         }
+        public void GiveCards(Deck deck, PictureBox Pb_PlayerLeftCard, PictureBox Pb_PlayerRightCard, Player player)
+        {
+
+            Card c = deck.DrawCard();
+
+            Pb_PlayerLeftCard.Image = GetCardPic(c);
+            c = deck.DrawCard();
+            Pb_PlayerRightCard.Image = GetCardPic(c);
+            player.state = new State(StateType.Playing);
+        }
+
+
         public Image GetCardPic(Card c)
         {
             CardValue value = c.value;

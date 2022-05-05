@@ -34,7 +34,7 @@ namespace Casino
 
     class Deck
     {
-        private static Random rng = new Random();
+        private static readonly Random rng = new Random();
         public List<Card> CreateDecks(int deckCount)
         {
             for (int i = 0; i < deckCount; i++)

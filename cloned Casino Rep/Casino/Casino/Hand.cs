@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Casino
 {
     internal class Hand
     {
-        private List<Card> cards = new List<Card>(); 
-
+        private readonly List<Card> cards = new List<Card>(); 
+        public PictureBox rightCard;
+        public PictureBox leftCard;
 
         internal int Value()
         {
@@ -23,8 +25,6 @@ namespace Casino
 
             return sum; 
         }
-
-
 
         internal bool CanSplit()
         {
