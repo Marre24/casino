@@ -8,13 +8,20 @@ namespace Casino
 {
     internal class Hand
     {
-        List<Card> cards = new List<Card>(); 
+        private List<Card> cards = new List<Card>(); 
 
 
-        internal string value()
+        internal int Value()
         {
-            cards.Select(c => c.value.FaceValue()).Aggregate();
-            return "21";
+            int sum = 0;
+            var aCards = cards.Select(c => c.FaceValue(c.value));
+
+            foreach (var value in aCards)
+            {
+                sum += value;
+            }
+
+            return sum; 
         }
 
 

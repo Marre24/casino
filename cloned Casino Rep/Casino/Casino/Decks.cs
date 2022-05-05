@@ -73,10 +73,11 @@ namespace Casino
                 deck[n] = value;
             }
         }
-        public Card DrawCard()
+        public Card DrawCard(Dictionary<Player, Hand> hands, Player player)
         {
             Card card = deck[0];
             deck.RemoveAt(0);
+            hands[player].AddCard(card);
             return card;
         }
     }

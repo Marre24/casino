@@ -17,10 +17,10 @@ namespace Casino
         Deck deck = new Deck();
         SceneClass scene = new SceneClass();
         List<Player> undealtPlayers = new List<Player>();
-        List<int> player1CardValues = new List<int>();
         public bool player1GetPrice = false;
         List<Player> stoppedPlayers = new List<Player>();
         Dictionary<Player, Hand> hands = new Dictionary<Player, Hand>();
+        Player player = new Player();
 
         public BlackJackForm()
         {
@@ -29,7 +29,9 @@ namespace Casino
             scene.BlackJackScene(Btn_Player1Join, Btn_Player2Join, Btn_Player3Join, Btn_Player4Join, Btn_startRound);
             deck.CreateDecks(deckCount);
             deck.ShuffleDeck();
-            
+
+            MessageBox.Show(Convert.ToString((int)deck.DrawCard(hands, player).value));
+
         }
         public Image GetCardPic(Card c)
         {
@@ -59,10 +61,7 @@ namespace Casino
             scene.RoundScene(activePlayers, Pb_DealerLeftCard, Pb_DealerRightCard, Pb_Player1LeftCard, Pb_Player1RightCard, Pb_Player2LeftCard, Pb_Player2RightCard, Pb_Player3LeftCard, Pb_Player3RightCard, Pb_Player4LeftCard, Pb_Player4RightCard, Tb_Player1SumValue, Tb_Player2SumValue, Tb_Player3SumValue, Tb_Player4SumValue);
             undealtPlayers = activePlayers;
 
-            Card c = deck.DrawCard();
-            Pb_DealerLeftCard.Image = GetCardPic(c);
-            c = deck.DrawCard();
-            Pb_DealerRightCard.Image = GetCardPic(c);
+  
 
             while (undealtPlayers.Count > 0)
             {
@@ -74,19 +73,7 @@ namespace Casino
 
         private void CalcSums(Player activePlayer, Card c)
         {
-            Hand hand = hands[activePlayer];
-
-            hand.AddCard(c);
-
-            if (c.value > CardValue.ten)
-                c.value = CardValue.ten;
-
-            if (c.value == CardValue.ace)
-                c.value = CardValue.jack;
-
-            Tb_Player1SumValue.Texts = hand.value();
-            
-
+            Tb_Player1SumValue.Texts = hands[activePlayer].Value().ToString();
         }
 
         public void CheckStatus(Player player)
@@ -143,28 +130,26 @@ namespace Casino
             this.Controls.Add(pictureBox);
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             Controls.SetChildIndex(pictureBox, 0);
-            Card c = deck.DrawCard();
+            Card c = deck.DrawCard(hands, activePlayer);
             pictureBox.Image = GetCardPic(c);
             CalcSums(activePlayer, c);
-            CheckStatus();
+            CheckStatus(new Player());
         }
 
         public void GiveCards()
         {
             foreach (Player player in activePlayers)
             {
-                Card c = deck.DrawCard();
-
+                Card c = deck.DrawCard(hands, player);
                 //DealTo(c, player);
-
-
 
                 Pb_Player1LeftCard.Image = GetCardPic(c);
                 CalcSums(player, c);
-                c = deck.DrawCard();
+                c = deck.DrawCard(hands, player);
                 Pb_Player1RightCard.Image = GetCardPic(c);
                 CalcSums(player, c);
                 undealtPlayers.RemoveAt(0);
+
                 CheckStatus(player);
             }
         }
@@ -259,7 +244,7 @@ namespace Casino
         {
             scene.StandScene(Btn_Player1Hit, Btn_Player1Stand);
             stoppedPlayers.Add(new Player());
-            CheckStatus();
+            CheckStatus(new Player());
         }
 
         private void Btn_Player2Hit_Click(object sender, EventArgs e)
