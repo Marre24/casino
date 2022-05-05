@@ -8,8 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using PlayerId = System.Int32;
+
+
 namespace Casino
 {
+    
     public partial class BlackJackForm : Form
     {
         List<Player> activePlayers = new List<Player>();
@@ -20,6 +24,7 @@ namespace Casino
         public bool player1GetPrice = false;
         List<Player> stoppedPlayers = new List<Player>();
         Dictionary<Player, Hand> hands = new Dictionary<Player, Hand>();
+
         Player player = new Player();
 
         public BlackJackForm()
@@ -30,7 +35,11 @@ namespace Casino
             deck.CreateDecks(deckCount);
             deck.ShuffleDeck();
 
-            MessageBox.Show(Convert.ToString((int)deck.DrawCard(hands, player).value));
+            
+            Card c = deck.DrawCard();
+            player.hand.AddCard(c);
+
+            MessageBox.Show(c.ToString());
 
         }
         public Image GetCardPic(Card c)
