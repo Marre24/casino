@@ -18,8 +18,8 @@ namespace Casino
     public partial class BlackJackForm : Form
     {
         readonly List<Player> activePlayers = new List<Player>();
-        private readonly int deckCount = 6;
-        readonly Deck deck = new Deck();
+        private static readonly int deckCount = 6;
+        readonly Deck deck = new Deck(deckCount);
         readonly SceneClass scene = new SceneClass();
         public bool player1GetPrice = false;
         readonly Dictionary<Player, Hand> hands = new Dictionary<Player, Hand>();
@@ -64,11 +64,13 @@ namespace Casino
 
             foreach (Player p in activePlayers)
             {
-                if (p.state == new State(StateType.undelt))
+                if (p.WaitingForCard())
                 {
-                    dealer.GiveCards(deck, p.hand.leftCard, p.hand.rightCard, p);
+                    dealer.GiveCards(deck,p);
+                    //Pb_Player1LeftCard.Image = p.hand.leftImage;
+                    //Pb_Player1RightCard.Image = p.hand.rightImage;
                     CalcSums(p);
-                    CheckStatus(p);
+                    CheckHandsFor(p);
                 }
             }
             Btn_startRound.Hide();
@@ -79,7 +81,7 @@ namespace Casino
             Tb_Player1SumValue.Texts = hands[activePlayer].Value().ToString();
         }
 
-        private void CheckStatus(Player player)
+        private void CheckHandsFor(Player player)
         {
             if (player.hand.Value() > 21)
             {
@@ -89,23 +91,21 @@ namespace Casino
             if (player.hand.Value() == 21)
             {
                 scene.StandScene(Btn_Player1Hit, Btn_Player1Stand);
+
                 player1GetPrice = true;
 
             }
-            if (hands[player].CanSplit())
-            {
-                Btn_Player1Split.Show();
-            }
+            
 
             int counter = 0;
 
             foreach (Player p in activePlayers)
             {
-                if (p.state == new State(StateType.Busted) || new State(StateType.Stopped) == p.state)
+                if (p.HasStopped())
                 {
                     counter++;
                     if (activePlayers.Count == counter)
-                        scene.RoundEndScene();
+                        scene.EndRoundScene();
                 }
             }
         }
@@ -132,7 +132,7 @@ namespace Casino
             activePlayer.hand.AddCard(c);
             pictureBox.Image = GetCardPic(c);
             CalcSums(activePlayer);
-            CheckStatus(activePlayer);
+            CheckHandsFor(activePlayer);
         }
 
         
@@ -187,9 +187,8 @@ namespace Casino
             scene.BettingScene(Pb_ChipBlack, Pb_ChipBlue, Pb_ChipPink, Pb_ChipRed, Btn_ClearBet, Tb_100, Tb_1000, Tb_500 , Tb_2000, Tb_BetText, Tb_Bet);
             Player player = new Player();
             activePlayers.Add(player);
-            player.hand.leftCard = Pb_Player1LeftCard;
-            player.hand.rightCard = Pb_Player1RightCard;
-            player.state = new State(StateType.undelt);
+            hands.Add(player, player.hand);
+            player.StartPlaying();
         }
 
         private void Btn_Player2Join_Click(object sender, EventArgs e)
@@ -228,7 +227,7 @@ namespace Casino
         private void Btn_Player1Stand_Click(object sender, EventArgs e)
         {
             scene.StandScene(Btn_Player1Hit, Btn_Player1Stand);
-            CheckStatus(new Player());
+            CheckHandsFor(new Player());
         }
 
         private void Btn_Player2Hit_Click(object sender, EventArgs e)

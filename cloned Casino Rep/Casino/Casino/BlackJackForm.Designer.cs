@@ -49,19 +49,15 @@
             this.Btn_Player2Join = new Casino.CostomButtons();
             this.Btn_Player1Join = new Casino.CostomButtons();
             this.Tb_Player3Username = new Casino.CostomTextBox();
-            this.Btn_Player3Split = new Casino.CostomButtons();
             this.Btn_Player3Stand = new Casino.CostomButtons();
             this.Btn_Player3Hit = new Casino.CostomButtons();
             this.Tb_Player4Username = new Casino.CostomTextBox();
-            this.Btn_Player4Split = new Casino.CostomButtons();
             this.Btn_Player4Stand = new Casino.CostomButtons();
             this.Btn_Player4Hit = new Casino.CostomButtons();
             this.Tb_Player1Username = new Casino.CostomTextBox();
-            this.Btn_Player1Split = new Casino.CostomButtons();
             this.Btn_Player1Stand = new Casino.CostomButtons();
             this.Btn_Player1Hit = new Casino.CostomButtons();
             this.Tb_Player2Username = new Casino.CostomTextBox();
-            this.Btn_Player2Split = new Casino.CostomButtons();
             this.Btn_Player2Stand = new Casino.CostomButtons();
             this.Btn_Player2Hit = new Casino.CostomButtons();
             this.Btn_exit = new Casino.CostomButtons();
@@ -382,25 +378,6 @@
             this.Tb_Player3Username.Texts = "";
             this.Tb_Player3Username.UnderlinedStyle = true;
             // 
-            // Btn_Player3Split
-            // 
-            this.Btn_Player3Split.BackColor = System.Drawing.Color.Purple;
-            this.Btn_Player3Split.BackgroundColor = System.Drawing.Color.Purple;
-            this.Btn_Player3Split.BorderColor = System.Drawing.Color.Purple;
-            this.Btn_Player3Split.BorderRadius = 30;
-            this.Btn_Player3Split.BorderSize = 5;
-            this.Btn_Player3Split.FlatAppearance.BorderSize = 0;
-            this.Btn_Player3Split.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Player3Split.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Player3Split.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.Btn_Player3Split.Location = new System.Drawing.Point(933, 552);
-            this.Btn_Player3Split.Name = "Btn_Player3Split";
-            this.Btn_Player3Split.Size = new System.Drawing.Size(76, 34);
-            this.Btn_Player3Split.TabIndex = 27;
-            this.Btn_Player3Split.Text = "Split";
-            this.Btn_Player3Split.TextColor = System.Drawing.SystemColors.MenuText;
-            this.Btn_Player3Split.UseVisualStyleBackColor = false;
-            // 
             // Btn_Player3Stand
             // 
             this.Btn_Player3Stand.BackColor = System.Drawing.Color.Firebrick;
@@ -460,25 +437,6 @@
             this.Tb_Player4Username.TabIndex = 22;
             this.Tb_Player4Username.Texts = "";
             this.Tb_Player4Username.UnderlinedStyle = true;
-            // 
-            // Btn_Player4Split
-            // 
-            this.Btn_Player4Split.BackColor = System.Drawing.Color.Purple;
-            this.Btn_Player4Split.BackgroundColor = System.Drawing.Color.Purple;
-            this.Btn_Player4Split.BorderColor = System.Drawing.Color.Purple;
-            this.Btn_Player4Split.BorderRadius = 30;
-            this.Btn_Player4Split.BorderSize = 5;
-            this.Btn_Player4Split.FlatAppearance.BorderSize = 0;
-            this.Btn_Player4Split.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Player4Split.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Player4Split.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.Btn_Player4Split.Location = new System.Drawing.Point(1222, 552);
-            this.Btn_Player4Split.Name = "Btn_Player4Split";
-            this.Btn_Player4Split.Size = new System.Drawing.Size(76, 34);
-            this.Btn_Player4Split.TabIndex = 21;
-            this.Btn_Player4Split.Text = "Split";
-            this.Btn_Player4Split.TextColor = System.Drawing.SystemColors.MenuText;
-            this.Btn_Player4Split.UseVisualStyleBackColor = false;
             // 
             // Btn_Player4Stand
             // 
@@ -540,25 +498,6 @@
             this.Tb_Player1Username.Texts = "";
             this.Tb_Player1Username.UnderlinedStyle = true;
             // 
-            // Btn_Player1Split
-            // 
-            this.Btn_Player1Split.BackColor = System.Drawing.Color.Purple;
-            this.Btn_Player1Split.BackgroundColor = System.Drawing.Color.Purple;
-            this.Btn_Player1Split.BorderColor = System.Drawing.Color.Purple;
-            this.Btn_Player1Split.BorderRadius = 30;
-            this.Btn_Player1Split.BorderSize = 5;
-            this.Btn_Player1Split.FlatAppearance.BorderSize = 0;
-            this.Btn_Player1Split.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Player1Split.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Player1Split.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.Btn_Player1Split.Location = new System.Drawing.Point(309, 552);
-            this.Btn_Player1Split.Name = "Btn_Player1Split";
-            this.Btn_Player1Split.Size = new System.Drawing.Size(76, 34);
-            this.Btn_Player1Split.TabIndex = 15;
-            this.Btn_Player1Split.Text = "Split";
-            this.Btn_Player1Split.TextColor = System.Drawing.SystemColors.MenuText;
-            this.Btn_Player1Split.UseVisualStyleBackColor = false;
-            // 
             // Btn_Player1Stand
             // 
             this.Btn_Player1Stand.BackColor = System.Drawing.Color.Firebrick;
@@ -619,25 +558,6 @@
             this.Tb_Player2Username.TabIndex = 10;
             this.Tb_Player2Username.Texts = "";
             this.Tb_Player2Username.UnderlinedStyle = true;
-            // 
-            // Btn_Player2Split
-            // 
-            this.Btn_Player2Split.BackColor = System.Drawing.Color.Purple;
-            this.Btn_Player2Split.BackgroundColor = System.Drawing.Color.Purple;
-            this.Btn_Player2Split.BorderColor = System.Drawing.Color.Purple;
-            this.Btn_Player2Split.BorderRadius = 30;
-            this.Btn_Player2Split.BorderSize = 5;
-            this.Btn_Player2Split.FlatAppearance.BorderSize = 0;
-            this.Btn_Player2Split.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Player2Split.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Player2Split.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.Btn_Player2Split.Location = new System.Drawing.Point(636, 552);
-            this.Btn_Player2Split.Name = "Btn_Player2Split";
-            this.Btn_Player2Split.Size = new System.Drawing.Size(76, 34);
-            this.Btn_Player2Split.TabIndex = 9;
-            this.Btn_Player2Split.Text = "Split";
-            this.Btn_Player2Split.TextColor = System.Drawing.SystemColors.MenuText;
-            this.Btn_Player2Split.UseVisualStyleBackColor = false;
             // 
             // Btn_Player2Stand
             // 
@@ -924,25 +844,21 @@
             this.Controls.Add(this.Btn_Player2Join);
             this.Controls.Add(this.Btn_Player1Join);
             this.Controls.Add(this.Tb_Player3Username);
-            this.Controls.Add(this.Btn_Player3Split);
             this.Controls.Add(this.Btn_Player3Stand);
             this.Controls.Add(this.Btn_Player3Hit);
             this.Controls.Add(this.Pb_Player3RightCard);
             this.Controls.Add(this.Pb_Player3LeftCard);
             this.Controls.Add(this.Tb_Player4Username);
-            this.Controls.Add(this.Btn_Player4Split);
             this.Controls.Add(this.Btn_Player4Stand);
             this.Controls.Add(this.Btn_Player4Hit);
             this.Controls.Add(this.Pb_Player4RightCard);
             this.Controls.Add(this.Pb_Player4LeftCard);
             this.Controls.Add(this.Tb_Player1Username);
-            this.Controls.Add(this.Btn_Player1Split);
             this.Controls.Add(this.Btn_Player1Stand);
             this.Controls.Add(this.Btn_Player1Hit);
             this.Controls.Add(this.Pb_Player1RightCard);
             this.Controls.Add(this.Pb_Player1LeftCard);
             this.Controls.Add(this.Tb_Player2Username);
-            this.Controls.Add(this.Btn_Player2Split);
             this.Controls.Add(this.Btn_Player2Stand);
             this.Controls.Add(this.Btn_Player2Hit);
             this.Controls.Add(this.Btn_exit);
@@ -985,22 +901,18 @@
         private CostomButtons Btn_exit;
         private CostomButtons Btn_Player2Hit;
         private CostomButtons Btn_Player2Stand;
-        private CostomButtons Btn_Player2Split;
         private CostomTextBox Tb_Player2Username;
         private CostomTextBox Tb_Player1Username;
-        private CostomButtons Btn_Player1Split;
         private CostomButtons Btn_Player1Stand;
         private CostomButtons Btn_Player1Hit;
         private System.Windows.Forms.PictureBox Pb_Player1RightCard;
         private System.Windows.Forms.PictureBox Pb_Player1LeftCard;
         private CostomTextBox Tb_Player4Username;
-        private CostomButtons Btn_Player4Split;
         private CostomButtons Btn_Player4Stand;
         private CostomButtons Btn_Player4Hit;
         private System.Windows.Forms.PictureBox Pb_Player4RightCard;
         private System.Windows.Forms.PictureBox Pb_Player4LeftCard;
         private CostomTextBox Tb_Player3Username;
-        private CostomButtons Btn_Player3Split;
         private CostomButtons Btn_Player3Stand;
         private CostomButtons Btn_Player3Hit;
         private System.Windows.Forms.PictureBox Pb_Player3RightCard;

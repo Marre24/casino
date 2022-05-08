@@ -144,7 +144,7 @@ namespace Casino
             Tb_Bet.Show();
         }
 
-        public void RoundEndScene()
+        public void EndRoundScene()
         {
 
 

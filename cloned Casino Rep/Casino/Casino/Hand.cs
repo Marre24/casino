@@ -4,36 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
+
 
 namespace Casino
 {
-    internal class Hand
+    public class Hand
     {
-        private readonly List<Card> cards = new List<Card>(); 
-        public PictureBox rightCard;
-        public PictureBox leftCard;
+        private readonly List<Card> cards = new List<Card>();
+
 
         internal int Value()
         {
-            int sum = 0;
-            var aCards = cards.Select(c => c.FaceValue(c.value));
-
-            foreach (var value in aCards)
+            Console.WriteLine(cards.Count);
+            if (cards.Count == 0)
             {
-                sum += value;
+                Console.WriteLine("no cards");
+                return 0;
             }
 
-            return sum; 
-        }
-
-        internal bool CanSplit()
-        {
-            return cards.Count == 2 && cards.Count != cards.Distinct().Count();
+            return cards.Select(c => c.FaceValue(c.value)).Aggregate((a,b) => a + b);
         }
 
         internal void AddCard(Card c)
         {
             cards.Add(c);
+            Console.WriteLine(c);
         }
     }
 }

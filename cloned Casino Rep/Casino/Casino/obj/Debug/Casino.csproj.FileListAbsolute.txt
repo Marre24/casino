@@ -59,3 +59,6 @@ C:\Users\Theodor Lindberg\OneDrive\Skrivbord\casino\cloned Casino Rep\Casino\Cas
 C:\Users\Theodor Lindberg\OneDrive\Skrivbord\casino\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.csproj.CoreCompileInputs.cache
 C:\Users\Theodor Lindberg\OneDrive\Skrivbord\casino\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.exe
 C:\Users\Theodor Lindberg\OneDrive\Skrivbord\casino\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.pdb
+C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Casino\Casino\bin\Debug\nunit.framework.dll
+C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Casino\Casino\bin\Debug\nunit.framework.xml
+C:\Users\Maxi\Documents\programering\REPOSOTORIES\Casino_v2\cloned Casino Rep\Casino\Casino\obj\Debug\Casino.csproj.CopyComplete

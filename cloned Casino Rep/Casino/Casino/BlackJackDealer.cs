@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace Casino
 {
-    class BlackJackDealer
+    public class BlackJackDealer
     {
         public void TakeCards(Deck deck, PictureBox Pb_DealerLeftCard, PictureBox Pb_DealerRightCard)
         {
@@ -17,15 +17,15 @@ namespace Casino
             c = deck.DrawCard();
             Pb_DealerRightCard.Image = GetCardPic(c);
         }
-        public void GiveCards(Deck deck, PictureBox Pb_PlayerLeftCard, PictureBox Pb_PlayerRightCard, Player player)
+        public void GiveCards(Deck deck, Player player)
         {
 
             Card c = deck.DrawCard();
 
-            Pb_PlayerLeftCard.Image = GetCardPic(c);
-            c = deck.DrawCard();
-            Pb_PlayerRightCard.Image = GetCardPic(c);
-            player.state = new State(StateType.Playing);
+            //player.hand.leftImage = GetCardPic(c);
+            //c = deck.DrawCard();
+            //player.hand.rightImage = GetCardPic(c);
+            //player.StartPlaying();
         }
 
 

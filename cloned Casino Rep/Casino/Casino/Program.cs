@@ -14,11 +14,12 @@ namespace Casino
         [STAThread]
         static void Main()
         {
-            
+            Table table = new Table(new Deck(6), new BlackJackDealer());
+            table.join(new Player());
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Log_inForm());
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new Log_inForm());
             
         }
     }

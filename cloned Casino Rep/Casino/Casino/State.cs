@@ -9,7 +9,7 @@ namespace Casino
     public enum StateType
     {
         Spectating,
-        undelt,
+        Undealt,
         Playing,
         Busted,
         Stopped

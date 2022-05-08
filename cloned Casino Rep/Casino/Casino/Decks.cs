@@ -32,8 +32,15 @@ namespace Casino
         diamonds = 4
     }
 
-    class Deck
+    public class Deck : DeckOfCards
     {
+        public Deck(int deckCount)
+        {
+            CreateDecks(deckCount);
+            ShuffleDeck();
+
+        }
+
         private static readonly Random rng = new Random();
         public List<Card> CreateDecks(int deckCount)
         {
@@ -79,5 +86,10 @@ namespace Casino
             deck.RemoveAt(0);
             return card;
         }
+    }
+
+    public interface DeckOfCards
+    {
+        Card DrawCard();
     }
 }
